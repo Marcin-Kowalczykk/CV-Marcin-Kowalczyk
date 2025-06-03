@@ -1,33 +1,33 @@
 <svg viewBox="0 0 1920 1400" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin slice">
   <rect width="100%" height="100%" fill="#181c24"/>
-  <text x="80" y="120" font-family="Fira Mono, monospace" font-size="40" fill="#fff" opacity="0.10">
+  <text x="80" y="120" font-family="Fira Mono, monospace" font-size="40" fill="#fff" opacity="0.15">
     useEffect(() =&gt; &#123; fetchMarcinData(); &#125;, []);
   </text>
-  <text x="80" y="220" font-family="Fira Mono, monospace" font-size="56" fill="#61dafb" opacity="0.15">
+  <text x="80" y="220" font-family="Fira Mono, monospace" font-size="56" fill="#61dafb" opacity="0.25">
     { "name": "Marcin", "role": "Frontend Engineer" }
   </text>
-  <text x="80" y="340" font-family="Fira Mono, monospace" font-size="40" fill="#fff" opacity="0.10">
+  <text x="80" y="340" font-family="Fira Mono, monospace" font-size="40" fill="#fff" opacity="0.15">
     const skills = ['React', 'TypeScript', 'Node.js', 'Next.js', 'Express.js']
   </text>
-  <text x="80" y="440" font-family="Fira Mono, monospace" font-size="40" fill="#fff" opacity="0.10">
+  <text x="80" y="440" font-family="Fira Mono, monospace" font-size="40" fill="#fff" opacity="0.15">
     const curiosity = true;
   </text>
-  <text x="80" y="540" font-family="Fira Mono, monospace" font-size="40" fill="#fff" opacity="0.10">
+  <text x="80" y="540" font-family="Fira Mono, monospace" font-size="40" fill="#fff" opacity="0.15">
     const passion = 'coding';
   </text>
-  <text x="80" y="640" font-family="Fira Mono, monospace" font-size="40" fill="#fff" opacity="0.10">
+  <text x="80" y="640" font-family="Fira Mono, monospace" font-size="40" fill="#fff" opacity="0.15">
     function createAwesome({boringProject}) &#123; ... return perfectProjects; &#125;
   </text>
-  <text x="80" y="740" font-family="Fira Mono, monospace" font-size="40" fill="#fff" opacity="0.10">
+  <text x="80" y="740" font-family="Fira Mono, monospace" font-size="40" fill="#fff" opacity="0.15">
     const learn = () => &#123; while(!everythingKnown) keepLearning(); &#125;
   </text>
-  <text x="80" y="870" font-family="Fira Mono, monospace" font-size="56" fill="#61dafb" opacity="0.15">
+  <text x="80" y="870" font-family="Fira Mono, monospace" font-size="56" fill="#61dafb" opacity="0.25">
     const makeCoffee = () => Americana "☕️";
   </text>
-  <text x="80" y="1000" font-family="Fira Mono, monospace" font-size="40" fill="#fff" opacity="0.10">
+  <text x="80" y="1000" font-family="Fira Mono, monospace" font-size="40" fill="#fff" opacity="0.15">
     const deployFriday = () => throw new Error("Try again on Monday!");
   </text>
-  <text x="80" y="1130" font-family="Fira Mono, monospace" font-size="40" fill="#fff" opacity="0.10">
+  <text x="80" y="1130" font-family="Fira Mono, monospace" font-size="40" fill="#fff" opacity="0.15">
     const infiniteLoop = () => while(true) console.log('Still coding...');
   </text>
 </svg>
