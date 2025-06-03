@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import { ROUTES } from './router/routes'
 import React from 'react'
 import 'react-toastify/dist/ReactToastify.css'
@@ -7,13 +7,13 @@ import { StyledToastContainer } from './App.styles'
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           {ROUTES.map(({ path, element }) => (
             <Route key={path} path={path} element={React.createElement(element)} />
           ))}
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
       <StyledToastContainer position="bottom-right" />
     </>
   )
