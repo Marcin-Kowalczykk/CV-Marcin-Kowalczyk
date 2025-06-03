@@ -32,7 +32,7 @@ const HomePage = () => {
         <Title>Marcin Kowalczyk</Title>
         <Subtitle>Frontend Engineer</Subtitle>
       </Content>
-      <AudioButton audioSrc="/bg-home1.mp3" />
+      <AudioButton audioSrc={`${import.meta.env.BASE_URL}bg-home1.mp3`} />
     </Wrapper>
   )
 }
