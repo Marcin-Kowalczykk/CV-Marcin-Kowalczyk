@@ -177,7 +177,7 @@ Please change the parent <Route path="${O}"> to <Route path="${O==="/"?"*":`${O}
     background: rgba(24, 28, 50, 0.55);
     pointer-events: none;
   }
-`,Qb=()=>{const[n,r]=D.useState(window.innerWidth<768);return D.useEffect(()=>{const c=()=>{r(window.innerWidth<768)};return window.addEventListener("resize",c),()=>window.removeEventListener("resize",c)},[]),wt.jsxs(Zb,{children:[wt.jsx(Xb,{}),wt.jsx(jb,{children:wt.jsx(Gb,{isMobile:n})}),wt.jsxs(Yb,{children:[wt.jsx(Ib,{children:"Marcin Kowalczyk"}),wt.jsx(Lb,{children:"Frontend Engineer"})]}),wt.jsx(Nb,{audioSrc:"/bg-home1.mp3"})]})},qb=[{path:jp.HOME,element:Qb}],Vb=Ye(z1)`
+`,Qb=()=>{const[n,r]=D.useState(window.innerWidth<768);return D.useEffect(()=>{const c=()=>{r(window.innerWidth<768)};return window.addEventListener("resize",c),()=>window.removeEventListener("resize",c)},[]),wt.jsxs(Zb,{children:[wt.jsx(Xb,{}),wt.jsx(jb,{children:wt.jsx(Gb,{isMobile:n})}),wt.jsxs(Yb,{children:[wt.jsx(Ib,{children:"Marcin Kowalczyk"}),wt.jsx(Lb,{children:"Frontend Engineer"})]}),wt.jsx(Nb,{audioSrc:"/CV-Marcin-Kowalczyk/bg-home1.mp3"})]})},qb=[{path:jp.HOME,element:Qb}],Vb=Ye(z1)`
   @media (max-width: 768px) {
     top: 1rem;
     bottom: auto;
