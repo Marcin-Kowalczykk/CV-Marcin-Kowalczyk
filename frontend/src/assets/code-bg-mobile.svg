@@ -1,0 +1,69 @@
+<svg viewBox="0 0 1920 1400" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin slice">
+  <rect width="100%" height="100%" fill="#181c24"/>
+  <text x="40" y="80" font-family="Fira Mono, monospace" font-size="24" fill="#fff" opacity="0.10">
+    useEffect(() => fetchData(), []);
+  </text>
+  <text x="40" y="140" font-family="Fira Mono, monospace" font-size="32" fill="#61dafb" opacity="0.15">
+    { name: "Marcin", role: "Frontend" }
+  </text>
+  <text x="40" y="200" font-family="Fira Mono, monospace" font-size="24" fill="#fff" opacity="0.10">
+    const skills = ['React', 'TS', 'Node'];
+  </text>
+  <text x="40" y="260" font-family="Fira Mono, monospace" font-size="24" fill="#fff" opacity="0.10">
+    const curiosity = true;
+  </text>
+  <text x="40" y="320" font-family="Fira Mono, monospace" font-size="24" fill="#fff" opacity="0.10">
+    const passion = 'code';
+  </text>
+  <text x="40" y="380" font-family="Fira Mono, monospace" font-size="24" fill="#fff" opacity="0.10">
+    function createAwesome() => perfect;
+  </text>
+  <text x="40" y="440" font-family="Fira Mono, monospace" font-size="24" fill="#fff" opacity="0.10">
+    const learn = () => keepLearning();
+  </text>
+  <text x="40" y="500" font-family="Fira Mono, monospace" font-size="32" fill="#61dafb" opacity="0.15">
+    const coffee = () => "☕️";
+  </text>
+  <text x="40" y="560" font-family="Fira Mono, monospace" font-size="24" fill="#fff" opacity="0.10">
+    const deploy = () => "Monday!";
+  </text>
+  <text x="40" y="620" font-family="Fira Mono, monospace" font-size="24" fill="#fff" opacity="0.10">
+    while(true) code();
+  </text>
+  <text x="40" y="680" font-family="Fira Mono, monospace" font-size="24" fill="#fff" opacity="0.10">
+    const fixIE = () => "nope";
+  </text>
+  <text x="40" y="740" font-family="Fira Mono, monospace" font-size="24" fill="#fff" opacity="0.10">
+    const bug = () => "feature";
+  </text>
+  <text x="40" y="800" font-family="Fira Mono, monospace" font-size="24" fill="#fff" opacity="0.10">
+    npm install... loading
+  </text>
+  <text x="40" y="860" font-family="Fira Mono, monospace" font-size="32" fill="#61dafb" opacity="0.15">
+    git commit -m "fix"
+  </text>
+  <text x="40" y="920" font-family="Fira Mono, monospace" font-size="24" fill="#fff" opacity="0.10">
+    const debug = () => "works";
+  </text>
+  <text x="40" y="980" font-family="Fira Mono, monospace" font-size="24" fill="#fff" opacity="0.10">
+    const optimize = "fast";
+  </text>
+  <text x="40" y="1040" font-family="Fira Mono, monospace" font-size="24" fill="#fff" opacity="0.10">
+    const deadline = "tomorrow";
+  </text>
+  <text x="40" y="1100" font-family="Fira Mono, monospace" font-size="24" fill="#fff" opacity="0.10">
+    const css = "!important";
+  </text>
+  <text x="40" y="1160" font-family="Fira Mono, monospace" font-size="24" fill="#fff" opacity="0.10">
+    const client = "yes";
+  </text>
+  <text x="40" y="1220" font-family="Fira Mono, monospace" font-size="32" fill="#61dafb" opacity="0.15">
+    const stack = "copy paste";
+  </text>
+  <text x="40" y="1280" font-family="Fira Mono, monospace" font-size="24" fill="#fff" opacity="0.10">
+    const meeting = "email";
+  </text>
+  <text x="40" y="1340" font-family="Fira Mono, monospace" font-size="24" fill="#fff" opacity="0.10">
+    const estimate = "2x";
+  </text>
+</svg> 

@@ -1,33 +1,21 @@
-import { useEffect, useState } from 'react'
-import './App.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { ROUTES } from './router/routes'
+import React from 'react'
+import 'react-toastify/dist/ReactToastify.css'
+import { StyledToastContainer } from './App.styles'
 
 function App() {
-  const [message, setMessage] = useState<string>('')
-  const [isLoading, setIsLoading] = useState<boolean>(true)
-
-  const isEnvLocal = false
-  const apiUrl = import.meta.env.VITE_API_URL
-  const apiUrlLocal = import.meta.env.VITE_API_URL_LOCAL
-
-  const fetchMessage = async (): Promise<void> => {
-    setIsLoading(true)
-    const response = await fetch(`${isEnvLocal ? apiUrlLocal : apiUrl}/api/message`)
-    const data = await response.json()
-
-    setMessage(data.message)
-    setIsLoading(false)
-  }
-
-  useEffect(() => {
-    fetchMessage()
-  }, [])
-
   return (
-    <div>
-      <h1>Frontend Vite + React + Express</h1>
-      <p>Deployed on Github Pages - test</p>
-      {isLoading ? <p>Loading...</p> : <p>Backend message: {message}</p>}
-    </div>
+    <>
+      <BrowserRouter>
+        <Routes>
+          {ROUTES.map(({ path, element }) => (
+            <Route key={path} path={path} element={React.createElement(element)} />
+          ))}
+        </Routes>
+      </BrowserRouter>
+      <StyledToastContainer position="bottom-right" />
+    </>
   )
 }
 
