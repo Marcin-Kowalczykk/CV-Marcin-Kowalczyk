@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist -u \"github-actions <github-actions@github.com>\""
+    "deploy": "gh-pages -d dist -u \"github-actions <github-actions@github.com>\" -r https://x-access-token:${GITHUB_TOKEN}@github.com/Marcin-Kowalczykk/CV-Marcin-Kowalczyk.git"
   },
   "dependencies": {
     "react": "^19.1.0",
