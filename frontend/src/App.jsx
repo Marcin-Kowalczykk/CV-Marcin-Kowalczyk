@@ -30,6 +30,7 @@ function App() {
   return (
     <div>
       <h1>Frontend Vite + React + Express</h1>
+      <p>Deployed on Github Pages - test</p>
       {isLoading ? (
         <p>Loading...</p>
       ) : (
