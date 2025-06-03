@@ -1,6 +1,6 @@
 # Fullstack App: Marcin Kowalczyk CV (In Progress)
 
-## 📁 Struktura
+## 📁 Structure
 - `frontend/` – React + Vite
 - `backend/` – Express.js
 
