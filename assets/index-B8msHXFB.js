@@ -187,7 +187,7 @@ Please change the parent <Route path="${_}"> to <Route path="${_==="/"?"*":`${_}
     0 0 16px 2px rgba(0, 255, 0, 0.3),
     0 0 32px 8px rgba(0, 255, 0, 0.1);
   filter: drop-shadow(0 0 8px rgba(0, 255, 0, 0.2));
-`,t_=({style:t})=>K.jsx(JC,{src:"/favicon.png",alt:"Player",style:t}),e_=Tt.div`
+`,t_=({style:t})=>K.jsx(JC,{src:"/CV-Marcin-Kowalczyk/favicon.png",alt:"Player",style:t}),e_=Tt.div`
   width: ${({width:t})=>t}px;
   height: 28px;
   background: ${({active:t})=>t?"linear-gradient(180deg, #e0e6ff 60%, #bfc8e6 100%)":"linear-gradient(180deg, #bfc8e6 60%, #a0a8c0 100%)"};
