@@ -1,10 +1,12 @@
+import { ROUTE_PATHS } from '../../router/routePaths'
+
 export const NAV_ITEMS = [
-  { path: '/', label: 'Home' },
-  { path: '/experience', label: 'Experience' },
-  { path: '/education', label: 'Education' },
-  { path: '/skills', label: 'Skills' },
-  { path: '/hobbies', label: 'Hobbies' },
-  { path: '/bonus', label: 'Bonus' },
+  { path: ROUTE_PATHS.HOME, label: 'Home' },
+  { path: ROUTE_PATHS.EXPERIENCE, label: 'Experience' },
+  { path: ROUTE_PATHS.EDUCATION, label: 'Education' },
+  { path: ROUTE_PATHS.SKILLS, label: 'Skills' },
+  { path: ROUTE_PATHS.HOBBIES, label: 'Hobbies' },
+  { path: ROUTE_PATHS.BONUS, label: 'Bonus' },
 ]
 
 export const menuVariants = {

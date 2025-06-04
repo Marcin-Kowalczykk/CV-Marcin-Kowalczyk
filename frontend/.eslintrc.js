@@ -41,7 +41,15 @@ module.exports = {
     'no-multiple-empty-lines': ['error', { max: 1 }],
     'no-trailing-spaces': 'error',
     'eol-last': ['error', 'always'],
-    indent: ['error', 2],
+    indent: 'off',
+    '@typescript-eslint/indent': [
+      'error',
+      {
+        SwitchCase: 1,
+        ignoredNodes: ['TemplateLiteral', 'TemplateLiteral > *'],
+        flatTernaryExpressions: true,
+      },
+    ],
     'prettier/prettier': [
       'warn',
       {
