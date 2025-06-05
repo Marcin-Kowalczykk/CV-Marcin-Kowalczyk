@@ -2,6 +2,7 @@ import { ROUTE_PATHS } from './routePaths'
 import HomePage from './pages/HomePage/HomePage'
 import EducationPage from './pages/EducationPage/EducationPage'
 import ExperiencePage from './pages/ExperiencePage/ExperiencePage'
+import SkillsPage from './pages/SkillsPage/SkillsPage'
 
 export const ROUTES: { path: string; element: React.ComponentType }[] = [
   {
@@ -15,5 +16,9 @@ export const ROUTES: { path: string; element: React.ComponentType }[] = [
   {
     path: ROUTE_PATHS.EXPERIENCE,
     element: ExperiencePage,
+  },
+  {
+    path: ROUTE_PATHS.SKILLS,
+    element: SkillsPage,
   },
 ]
