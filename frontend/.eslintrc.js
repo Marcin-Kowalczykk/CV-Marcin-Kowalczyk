@@ -1,7 +1,7 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: './frontend/tsconfig.json',
+    project: require.resolve('./tsconfig.json'),
     sourceType: 'module',
   },
   plugins: ['@typescript-eslint/eslint-plugin', 'react', 'prettier', 'react-hooks'],
@@ -42,14 +42,6 @@ module.exports = {
     'no-trailing-spaces': 'error',
     'eol-last': ['error', 'always'],
     indent: 'off',
-    '@typescript-eslint/indent': [
-      'error',
-      {
-        SwitchCase: 1,
-        ignoredNodes: ['TemplateLiteral', 'TemplateLiteral > *'],
-        flatTernaryExpressions: true,
-      },
-    ],
     'prettier/prettier': [
       'warn',
       {

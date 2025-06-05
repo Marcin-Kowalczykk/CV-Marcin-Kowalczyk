@@ -1,14 +1,17 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import SVGComet from './SVGComet/SVGComet'
-import { itemVariants, menuVariants, NAV_ITEMS } from './constants'
+import { itemVariants, menuVariants, menuVariantsLight, NAV_ITEMS } from './constants'
 import { NavContainer, HamburgerButton, HamburgerLine, Menu, MenuItem } from './Navbar.styles'
+import { getCometColor, getNavVariant } from './helpers'
 
 const NavBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isHamburgerHovered, setIsHamburgerHovered] = useState(false)
   const navigate = useNavigate()
+  const location = useLocation()
+  const navVariant = getNavVariant(location.pathname)
 
   const toggleMenu = () => {
     setIsOpen(!isOpen)
@@ -27,28 +30,33 @@ const NavBar: React.FC = () => {
         data-no-audio
         onMouseEnter={() => setIsHamburgerHovered(true)}
         onMouseLeave={() => setIsHamburgerHovered(false)}
+        variant={navVariant}
       >
-        <SVGComet color={isHamburgerHovered ? '#00d4ff' : '#fff'} />
-        <HamburgerLine isHovered={isHamburgerHovered} />
-        <HamburgerLine isHovered={isHamburgerHovered} />
-        <HamburgerLine isHovered={isHamburgerHovered} />
+        <SVGComet color={getCometColor(navVariant, isHamburgerHovered)} />
+        <HamburgerLine isHovered={isHamburgerHovered} variant={navVariant} />
+        <HamburgerLine isHovered={isHamburgerHovered} variant={navVariant} />
+        <HamburgerLine isHovered={isHamburgerHovered} variant={navVariant} />
       </HamburgerButton>
       <AnimatePresence>
         {isOpen && (
           <Menu
             isOpen={isOpen}
-            variants={menuVariants}
+            variants={navVariant === 'light' ? menuVariantsLight : menuVariants}
             initial="closed"
             animate="open"
             exit="closed"
+            variant={navVariant}
           >
             {NAV_ITEMS.map(({ path, label }) => (
               <MenuItem
                 key={path}
                 variants={itemVariants}
                 onClick={() => handleNavigation(path)}
-                whileHover={{ scale: 1.08 }}
+                whileHover={
+                  navVariant === 'light' ? { scale: 1.08, background: 'none' } : { scale: 1.08 }
+                }
                 whileTap={{ scale: 0.97 }}
+                variant={navVariant}
               >
                 {label}
               </MenuItem>

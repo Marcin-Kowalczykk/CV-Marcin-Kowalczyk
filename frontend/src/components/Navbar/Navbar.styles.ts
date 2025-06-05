@@ -1,5 +1,6 @@
 import styled, { keyframes } from 'styled-components'
 import { motion } from 'framer-motion'
+import { NavbarVariant } from './model'
 
 export const subtlePulse = keyframes`
   0% {
@@ -26,7 +27,7 @@ export const NavContainer = styled.nav`
   background: none;
 `
 
-export const HamburgerButton = styled.button`
+export const HamburgerButton = styled.button<{ variant?: NavbarVariant }>`
   background: none;
   border: none;
   cursor: pointer;
@@ -43,29 +44,40 @@ export const HamburgerButton = styled.button`
   transition: all 0.2s;
   position: relative;
   z-index: 1;
-
+  color: ${({ variant }) => {
+    if (variant === 'light') return '#181818'
+    if (variant === 'green') return '#00ff41'
+    return '#fff'
+  }};
   &:hover {
     transform: scale(1.2);
   }
 `
 
-export const HamburgerLine = styled(motion.span)<{ isHovered: boolean }>`
+export const HamburgerLine = styled(motion.span)<{
+  isHovered: boolean
+  variant?: NavbarVariant
+}>`
   width: 26px;
   height: 4px;
-  background-color: ${({ isHovered }) => (isHovered ? '#00d4ff' : '#fff')};
+  background-color: ${({ isHovered, variant }) => {
+    if (variant === 'light') return isHovered ? '#222' : '#181818'
+    if (variant === 'green') return isHovered ? '#00ff41' : '#009933'
+    return isHovered ? '#00d4ff' : '#fff'
+  }};
   border-radius: 10px;
   transition: background-color 0.2s;
   display: block;
 `
 
-export const Menu = styled(motion.div)<{ isOpen: boolean }>`
+export const Menu = styled(motion.div)<{ isOpen: boolean; variant?: NavbarVariant }>`
   position: absolute;
   top: 100%;
   right: 0;
-  /* No background, no shadow */
-  background: none;
-  box-shadow: none;
-  border-radius: 0;
+  background: ${({ variant }) => (variant === 'light' ? '#fff' : 'none')};
+  box-shadow: ${({ variant }) => (variant === 'light' ? '0 2px 16px rgba(0,0,0,0.07)' : 'none')};
+  border: ${({ variant }) => (variant === 'light' ? '1px solid #e0e0e0' : 'none')};
+  border-radius: ${({ variant }) => (variant === 'light' ? '12px' : '0')};
   padding: 0;
   display: ${(props) => (props.isOpen ? 'block' : 'none')};
   min-width: 150px;
@@ -73,18 +85,28 @@ export const Menu = styled(motion.div)<{ isOpen: boolean }>`
   z-index: 10;
 `
 
-export const MenuItem = styled(motion.div)`
+export const MenuItem = styled(motion.div)<{ variant?: NavbarVariant }>`
   padding: 18px 32px;
   cursor: pointer;
   border-radius: 10px;
   font-size: 1.35rem;
-  color: #fff;
+  color: ${({ variant }) => {
+    if (variant === 'light') return '#181818'
+    if (variant === 'green') return '#fff'
+    return '#fff'
+  }};
   background: none;
   border: none;
   text-align: left;
-  transition: color 0.2s;
+  transition:
+    color 0.2s,
+    background 0.2s;
   &:hover {
-    color: #00d4ff;
+    color: ${({ variant }) => {
+      if (variant === 'light') return '#00d4ff'
+      if (variant === 'green') return '#00ff41'
+      return '#00d4ff'
+    }};
     background: none;
   }
 `
