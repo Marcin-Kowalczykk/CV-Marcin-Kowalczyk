@@ -1,5 +1,6 @@
 import styled, { keyframes, css } from 'styled-components'
 import { FaHeadphones } from 'react-icons/fa'
+import { pulseBorder } from '../../../pages/ExperiencePage/ExperiencePage.styles'
 
 const pulse = keyframes`
   0% { transform: scale(1);}
@@ -53,6 +54,7 @@ export const MusicButton = styled.button<{ playing: boolean }>`
       color: #181c24;
       animation: ${pulse} 1.2s infinite;
     `}
+  animation: ${pulseBorder} 1.5s infinite;
 `
 
 export const HeadphonesIcon = styled(FaHeadphones)<{ playing: boolean }>`
