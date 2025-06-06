@@ -1,13 +1,14 @@
 import { AiOutlineHeart, AiOutlineShoppingCart, AiOutlineUser } from 'react-icons/ai'
-import { FaLinkedin, FaGithub } from 'react-icons/fa'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { useState } from 'react'
 import { Modal } from '../../../../components/Modal/Modal'
 import { TopIconsProps } from './model'
-import { GITHUB_REDIRECT, LINKEDIN_REDIRECT, PROFILE_TEXT } from './constants'
+import { PROFILE_TEXT } from './constants'
 import { IconButton, IconsRow } from './TopIcons.styles'
 import { handleCartClick } from './helpers'
+import GithubIcon from '../../../../components/Icons/GithubIcon'
+import LinkedinIcon from '../../../../components/Icons/LinkedinIcon'
 
 const TopIcons = ({ onHeartClick }: TopIconsProps) => {
   const [showProfile, setShowProfile] = useState(false)
@@ -37,22 +38,8 @@ const TopIcons = ({ onHeartClick }: TopIconsProps) => {
         <p>{PROFILE_TEXT}</p>
       </Modal>
       <IconsRow>
-        <IconButton
-          href={LINKEDIN_REDIRECT}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
-        >
-          <FaLinkedin />
-        </IconButton>
-        <IconButton
-          href={GITHUB_REDIRECT}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub"
-        >
-          <FaGithub />
-        </IconButton>
+        <LinkedinIcon />
+        <GithubIcon />
         <IconButton onClick={handleHeartClick} aria-label="Favorites">
           <AiOutlineHeart />
         </IconButton>
