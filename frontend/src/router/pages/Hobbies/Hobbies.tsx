@@ -16,7 +16,8 @@ import {
   PixelIcon,
   RowsContainer,
   Row,
-  CardContent,
+  QuestionMark,
+  IconContainer,
 } from './Hobbies.styles'
 import { renderColoredHeader, renderColoredList } from './helpers'
 import { HOBBIES_DATA } from './constants'
@@ -46,13 +47,28 @@ const Hobbies = () => {
             <Platform />
             <CardContainer>
               <Card onClick={() => toggleHobby(hobby.id)}>
-                {!selectedHobbies.includes(hobby.id) ? (
-                  <CardContent>?</CardContent>
-                ) : (
-                  <CardContent>
-                    <PixelIcon>{pixelSvgs[hobby.icon]}</PixelIcon>
-                  </CardContent>
-                )}
+                <AnimatePresence mode="wait">
+                  {!selectedHobbies.includes(hobby.id) ? (
+                    <QuestionMark
+                      key="question"
+                      initial={{ y: 0, opacity: 1 }}
+                      exit={{ y: -100, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: 'easeOut' }}
+                    >
+                      ?
+                    </QuestionMark>
+                  ) : (
+                    <IconContainer
+                      key="icon"
+                      initial={{ y: 100, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      exit={{ y: 100, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: 'easeOut' }}
+                    >
+                      <PixelIcon>{pixelSvgs[hobby.icon]}</PixelIcon>
+                    </IconContainer>
+                  )}
+                </AnimatePresence>
               </Card>
               <AnimatePresence>
                 {selectedHobbies.includes(hobby.id) && (
