@@ -35,6 +35,10 @@ export const PageTitle = styled.h1`
   font-weight: 700;
   margin-bottom: 24px;
   letter-spacing: 1px;
+
+  @media (max-width: 1280px) {
+    font-size: 18px;
+  }
 `
 
 export const IconsWrapper = styled.div`

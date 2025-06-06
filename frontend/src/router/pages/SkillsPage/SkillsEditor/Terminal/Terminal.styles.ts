@@ -15,6 +15,10 @@ export const TerminalContainer = styled.div`
   box-sizing: border-box;
   min-height: 80px;
   box-shadow: 0 -2px 8px 0 rgba(0, 0, 0, 0.12);
+
+  @media (max-width: 1280px) {
+    font-size: 11px;
+  }
 `
 export const TerminalLineWrap = styled.div<{ visible: boolean }>`
   opacity: ${({ visible }) => (visible ? 1 : 0)};

@@ -161,6 +161,10 @@ export const SkillItem = styled.li<{ visible: boolean }>`
     min-height: 28px;
     transform: ${({ visible }) => (visible ? 'translateX(0)' : 'translateX(24px)')};
   }
+
+  @media (max-width: 1280px) {
+    font-size: 0.9rem;
+  }
 `
 
 export const IconWrap = styled.span`

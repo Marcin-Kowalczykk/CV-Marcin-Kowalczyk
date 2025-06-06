@@ -27,4 +27,8 @@ export const TabButton = styled.button<{ active?: boolean }>`
   letter-spacing: 1px;
   text-transform: uppercase;
   width: 100%;
+
+  @media (max-width: 1280px) {
+    font-size: 12px;
+  }
 `

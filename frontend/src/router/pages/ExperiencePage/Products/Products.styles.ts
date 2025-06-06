@@ -11,6 +11,10 @@ export const ProductsGrid = styled.div`
   margin: 0 auto;
   height: 90vh;
   grid-auto-rows: 1fr;
+  @media (max-width: 1280px) {
+    gap: 12px;
+    max-width: 100%;
+  }
   @media (min-width: 1500px) {
     gap: 36px;
     max-width: 1600px;
@@ -36,7 +40,7 @@ export const ProductCard = styled.div<{
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  width: 29vw;
+  width: 100%;
   max-width: 370px;
   min-width: 260px;
   height: 60vh;
@@ -50,6 +54,13 @@ export const ProductCard = styled.div<{
       cursor: pointer;
     `}
   z-index: ${({ elevated }) => (elevated ? 201 : 1)};
+
+  @media (max-width: 1280px) {
+    height: 55vh;
+    max-height: 480px;
+    min-height: 280px;
+  }
+
   @media (min-width: 1500px) {
     width: 33vw;
     max-width: 500px;
@@ -98,6 +109,11 @@ export const ProductTitle = styled.div`
   font-size: 22px;
   margin-bottom: 4px;
   text-align: center;
+
+  @media (max-width: 1280px) {
+    font-size: 16px;
+    margin-bottom: 2px;
+  }
 `
 
 export const ProductDesc = styled.div`
@@ -105,12 +121,21 @@ export const ProductDesc = styled.div`
   font-size: 15px;
   margin-bottom: 6px;
   text-align: center;
+
+  @media (max-width: 1280px) {
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
 `
 
 export const ProductPrice = styled.div`
   font-weight: 600;
   font-size: 15px;
   text-align: center;
+
+  @media (max-width: 1280px) {
+    font-size: 12px;
+  }
 `
 
 export const PlaceholderCard = styled(ProductCard)<{ bg?: string }>`

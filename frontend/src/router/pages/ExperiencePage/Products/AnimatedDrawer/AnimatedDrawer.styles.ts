@@ -21,6 +21,9 @@ export const AnimatedDrawer = styled.div<{
   font-size: 13px;
   display: flex;
   flex-direction: row;
+  @media (max-width: 1280px) {
+    width: ${({ open }) => (open ? '500px' : '0')};
+  }
   @media (max-width: 900px) {
     left: 0;
     top: ${({ top, height }) => top + height}px;
@@ -41,6 +44,9 @@ export const DrawerContent = styled.div<{ visible: boolean }>`
   opacity: ${({ visible }) => (visible ? 1 : 0)};
   transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: ${({ visible }) => (visible ? 'auto' : 'none')};
+  @media (max-width: 1280px) {
+    padding: 10px 10px 20px 10px;
+  }
   @media (max-width: 900px) {
     flex-direction: column;
     gap: 16px;
@@ -53,6 +59,10 @@ export const DrawerColumn = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
+
+  @media (max-width: 1280px) {
+    gap: 4px;
+  }
 `
 
 export const DrawerTitle = styled.h3`
@@ -60,6 +70,11 @@ export const DrawerTitle = styled.h3`
   font-weight: 700;
   margin-bottom: 2px;
   color: #222;
+
+  @media (max-width: 1280px) {
+    font-size: 14px;
+    padding: 0;
+  }
 `
 
 export const DrawerList = styled.ul`
@@ -68,6 +83,10 @@ export const DrawerList = styled.ul`
   color: #444;
   font-size: 15px;
   line-height: 1.6;
+
+  @media (max-width: 1280px) {
+    font-size: 12px;
+  }
 `
 
 export const DrawerClose = styled.button`

@@ -109,4 +109,8 @@ export const MenuItem = styled(motion.div)<{ variant?: NavbarVariant }>`
     }};
     background: none;
   }
+  @media (max-width: 1280px) {
+    font-size: 1.1rem;
+    padding: 9px 16px;
+  }
 `
