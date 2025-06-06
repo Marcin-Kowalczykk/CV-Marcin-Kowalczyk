@@ -15,6 +15,7 @@ export const getCometColor = (variant: NavbarVariant, isHovered: boolean): strin
 export const getNavVariant = (pathname: string): NavbarVariant => {
   if (pathname.startsWith('/experience')) return 'light'
   if (pathname.startsWith('/education')) return 'green'
+  if (pathname.startsWith('/hobbies')) return 'green'
 
   return 'blue'
 }
