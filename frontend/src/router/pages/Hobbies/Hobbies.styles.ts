@@ -43,22 +43,6 @@ export const Card = styled(motion.div)`
   }
 `
 
-export const CardContent = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  color: #fff;
-  font-family: 'Press Start 2P', cursive;
-  text-shadow: 2px 2px 0 #000;
-`
-
 export const RowsContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -162,4 +146,30 @@ export const PixelIcon = styled.div`
   width: 80px;
   height: 80px;
   image-rendering: pixelated;
+`
+
+export const QuestionMark = styled(motion.div)`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #fff;
+  font-family: 'Press Start 2P', cursive;
+  text-shadow: 2px 2px 0 #000;
+`
+
+export const IconContainer = styled(motion.div)`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
