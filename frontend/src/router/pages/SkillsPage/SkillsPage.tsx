@@ -1,37 +1,10 @@
 import { useState, useCallback } from 'react'
-import styled from 'styled-components'
-import SkillsEditor from './SkillsEditor'
-import SkillsReadme from './SkillsReadme'
-import { CATEGORIES } from '../ExperiencePage/Sidebar/constants'
+import SkillsEditor from './SkillsEditor/SkillsEditor'
+import GithubReadme from './GithubReadme/GithubReadme'
+import { editorMarkdown } from './constants'
+import { SkillsPageContainer, SkillsPageColumn, SkillsPageColumnGithub } from './SkillsPage.styles'
 
-const editorMarkdown = `
-## Marcin Kowalczyk
-
-### Skills
-
-${CATEGORIES.map((cat) => `- ${cat.name}`).join('\n')}
-`
-
-const SkillsPageContainer = styled.div`
-  display: flex;
-  height: 100vh;
-  background: #0d1117;
-`
-
-const SkillsPageColumn = styled.div<{ borderRight?: boolean }>`
-  flex: 1;
-  ${({ borderRight }) => borderRight && 'border-right: 1px solid #222;'}
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-`
-
-const SkillsPageColumnGithub = styled(SkillsPageColumn)`
-  align-items: center;
-  justify-content: center;
-`
-
-export default function SkillsPage() {
+const SkillsPage: React.FC = () => {
   const [showReadmeContent, setShowReadmeContent] = useState(false)
 
   const handleTerminalEnd = useCallback(() => {
@@ -43,9 +16,9 @@ export default function SkillsPage() {
       <SkillsPageColumn borderRight>
         <SkillsEditor markdown={editorMarkdown} onTerminalEnd={handleTerminalEnd} />
       </SkillsPageColumn>
-      <SkillsPageColumnGithub>
-        {showReadmeContent && <SkillsReadme show categories={CATEGORIES} />}
-      </SkillsPageColumnGithub>
+      <SkillsPageColumnGithub>{showReadmeContent && <GithubReadme show />}</SkillsPageColumnGithub>
     </SkillsPageContainer>
   )
 }
+
+export default SkillsPage

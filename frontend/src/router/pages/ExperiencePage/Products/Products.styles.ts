@@ -1,4 +1,5 @@
-import styled, { css, keyframes } from 'styled-components'
+import styled, { css } from 'styled-components'
+import { pulseBorder } from '../ExperiencePage.styles'
 
 export const ProductsGrid = styled.div`
   display: grid;
@@ -13,18 +14,6 @@ export const ProductsGrid = styled.div`
   @media (min-width: 1500px) {
     gap: 36px;
     max-width: 1600px;
-  }
-`
-
-export const pulseBorder = keyframes`
-  0% {
-    box-shadow: 0 0 0 0 rgba(58, 90, 255, 0.7);
-  }
-  70% {
-    box-shadow: 0 0 0 12px rgba(58, 90, 255, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(58, 90, 255, 0);
   }
 `
 

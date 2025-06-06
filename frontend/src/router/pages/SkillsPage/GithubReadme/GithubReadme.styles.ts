@@ -1,23 +1,6 @@
-import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { GoBook } from 'react-icons/go'
-import { GoPencil } from 'react-icons/go'
-import { RxHamburgerMenu } from 'react-icons/rx'
 
-type Category = {
-  name: string
-  icon: React.ComponentType<{ color?: string; size?: number }>
-  color: string
-}
-
-type SkillsReadmeProps = {
-  show: boolean
-  categories: Category[]
-}
-
-const ANIMATION_DELAY = 80
-
-const Container = styled.div<{ visible?: boolean }>`
+export const Container = styled.div<{ visible?: boolean }>`
   background: #0d1117;
   border-radius: 6px;
   box-shadow: 0 1.5px 8px 0 rgba(27, 31, 35, 0.08);
@@ -44,7 +27,7 @@ const Container = styled.div<{ visible?: boolean }>`
   }
 `
 
-const ReadmeHeader = styled.div`
+export const ReadmeHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -61,13 +44,13 @@ const ReadmeHeader = styled.div`
   }
 `
 
-const ReadmeHeaderLeft = styled.div`
+export const ReadmeHeaderLeft = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
 `
 
-const ReadmeHeaderTitle = styled.div`
+export const ReadmeHeaderTitle = styled.div`
   font-size: 1.1rem;
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -77,7 +60,7 @@ const ReadmeHeaderTitle = styled.div`
   gap: 8px;
 `
 
-const ReadmeHeaderRight = styled.div`
+export const ReadmeHeaderRight = styled.div`
   display: flex;
   align-items: center;
   gap: 16px;
@@ -86,7 +69,7 @@ const ReadmeHeaderRight = styled.div`
   margin-right: 14px;
 `
 
-const OrangeBar = styled.div`
+export const OrangeBar = styled.div`
   height: 2.2px;
   background: #fd8c73;
   width: 88px;
@@ -100,7 +83,7 @@ const OrangeBar = styled.div`
   }
 `
 
-const WhiteBar = styled.div`
+export const WhiteBar = styled.div`
   height: 1.1px;
   background: #fff;
   width: 100%;
@@ -113,7 +96,7 @@ const WhiteBar = styled.div`
   }
 `
 
-const Content = styled.div`
+export const Content = styled.div`
   padding: 0 15px 9px 15px;
 
   @media (min-width: 1500px) {
@@ -121,7 +104,7 @@ const Content = styled.div`
   }
 `
 
-const Title = styled.h1`
+export const Title = styled.h1`
   font-size: 1.32rem;
   font-weight: 700;
   margin: 0 0 11px 0;
@@ -135,7 +118,7 @@ const Title = styled.h1`
   }
 `
 
-const SectionHeader = styled.h2`
+export const SectionHeader = styled.h2`
   font-size: 1.05rem;
   font-weight: 600;
   margin: 0 0 9px 0;
@@ -151,13 +134,13 @@ const SectionHeader = styled.h2`
   }
 `
 
-const SkillsList = styled.ul`
+export const SkillsList = styled.ul`
   padding: 0;
   margin: 0;
   list-style: none;
 `
 
-const SkillItem = styled.li<{ visible: boolean }>`
+export const SkillItem = styled.li<{ visible: boolean }>`
   display: flex;
   align-items: center;
   margin-bottom: 8.8px;
@@ -180,7 +163,7 @@ const SkillItem = styled.li<{ visible: boolean }>`
   }
 `
 
-const IconWrap = styled.span`
+export const IconWrap = styled.span`
   margin-right: 8.8px;
   display: flex;
   align-items: center;
@@ -193,62 +176,3 @@ const IconWrap = styled.span`
     min-height: 26px;
   }
 `
-
-const SkillsReadme: React.FC<SkillsReadmeProps> = ({ show, categories }) => {
-  const [visibleCount, setVisibleCount] = useState(0)
-  const [containerVisible, setContainerVisible] = useState(false)
-
-  useEffect(() => {
-    if (!show) {
-      setVisibleCount(0)
-      setContainerVisible(false)
-      return
-    }
-
-    setTimeout(() => setContainerVisible(true), 50)
-  }, [show])
-
-  useEffect(() => {
-    if (!containerVisible) return
-    if (visibleCount < categories.length) {
-      const timeout = setTimeout(() => {
-        setVisibleCount((v) => v + 1)
-      }, ANIMATION_DELAY)
-      return () => clearTimeout(timeout)
-    }
-  }, [containerVisible, visibleCount, categories.length])
-
-  if (!show) return null
-  return (
-    <Container visible={containerVisible}>
-      <ReadmeHeader>
-        <ReadmeHeaderLeft>
-          <GoBook size={20} style={{ color: '#c9d1d9' }} />
-          <ReadmeHeaderTitle>README</ReadmeHeaderTitle>
-        </ReadmeHeaderLeft>
-        <ReadmeHeaderRight>
-          <GoPencil size={16} />
-          <RxHamburgerMenu size={18} />
-        </ReadmeHeaderRight>
-      </ReadmeHeader>
-      <OrangeBar />
-      <WhiteBar />
-      <Content>
-        <Title>Marcin Kowalczyk</Title>
-        <SectionHeader>Skills</SectionHeader>
-        <SkillsList>
-          {categories.map((cat, idx) => (
-            <SkillItem key={cat.name} visible={idx < visibleCount}>
-              <IconWrap>
-                <cat.icon color={cat.color} size={20} />
-              </IconWrap>
-              <span>{cat.name}</span>
-            </SkillItem>
-          ))}
-        </SkillsList>
-      </Content>
-    </Container>
-  )
-}
-
-export default SkillsReadme
