@@ -5,7 +5,17 @@ import Player from './Player/Player'
 import Platform from './Platform/Platform'
 import MatrixRain from './MatrixRain/MatrixRain'
 import ArrowKeysGuide from './ArrowKeysGuide/ArrowKeysGuide'
-import { GAME_WIDTH, GAME_MARGIN, PLAYER_SIZE, PLATFORM_HEIGHT, GRAVITY, JUMP_VELOCITY, MOVE_SPEED, PLATFORM_DESCRIPTIONS, WIN_TEXT } from './constants' 
+import {
+  GAME_WIDTH,
+  GAME_MARGIN,
+  PLAYER_SIZE,
+  PLATFORM_HEIGHT,
+  GRAVITY,
+  JUMP_VELOCITY,
+  MOVE_SPEED,
+  PLATFORM_DESCRIPTIONS,
+  WIN_TEXT,
+} from './constants'
 import { getPlatformPositions } from './helpers'
 import {
   NoScroll,
@@ -33,7 +43,6 @@ const EducationPage = () => {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
- 
   const [player, setPlayer] = useState({
     x: GAME_WIDTH / 2 - PLAYER_SIZE / 2,
     y: gameHeight - PLAYER_SIZE,
@@ -136,7 +145,6 @@ const EducationPage = () => {
     animation = requestAnimationFrame(loop)
     return () => cancelAnimationFrame(animation)
   }, [platforms, win, gameHeight])
-  
 
   useEffect(() => {
     if (win) {
