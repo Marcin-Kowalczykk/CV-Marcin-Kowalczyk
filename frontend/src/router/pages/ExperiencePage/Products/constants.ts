@@ -1,7 +1,7 @@
 export const PLACEHOLDER_IMAGES = [
-  `${import.meta.env.BASE_URL}product_4.jpeg`,
-  `${import.meta.env.BASE_URL}product_5.jpeg`,
-  `${import.meta.env.BASE_URL}product_6.jpeg`,
+  `${import.meta.env.BASE_URL}product_4.webp`,
+  `${import.meta.env.BASE_URL}product_5.webp`,
+  `${import.meta.env.BASE_URL}product_6.webp`,
 ]
 
 export const PRODUCT_DATA = [
@@ -9,21 +9,21 @@ export const PRODUCT_DATA = [
     title: 'Frontend Developer',
     desc: 'Dac Software',
     price: 'February 2022 – June 2025',
-    img: `${import.meta.env.BASE_URL}product_1.jpeg`,
+    img: `${import.meta.env.BASE_URL}product_1.webp`,
     opinions: 450,
   },
   {
     title: 'Frontend Developer',
     desc: 'Your company',
     price: 'Close Future',
-    img: `${import.meta.env.BASE_URL}product_2.jpeg`,
+    img: `${import.meta.env.BASE_URL}product_2.webp`,
     opinions: 399,
   },
   {
     title: 'Automation Engineer',
     desc: 'Doehler',
     price: 'June 2019 – October 2019',
-    img: `${import.meta.env.BASE_URL}product_3.jpeg`,
+    img: `${import.meta.env.BASE_URL}product_3.webp`,
     opinions: 121,
   },
 ]

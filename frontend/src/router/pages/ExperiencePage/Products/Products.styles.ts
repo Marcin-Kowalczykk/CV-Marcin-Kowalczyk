@@ -77,6 +77,10 @@ export const ProductImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  will-change: opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-font-smoothing: subpixel-antialiased;
 `
 
 export const ProductInfo = styled.div`

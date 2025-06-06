@@ -79,7 +79,7 @@ const Products = () => {
   return (
     <div style={{ position: 'relative' }} ref={gridRef}>
       <ProductsGrid>
-        {PRODUCT_DATA.map((p, i) => (
+        {PRODUCT_DATA.map((product, i) => (
           <ProductCard
             key={i}
             pulse={!drawerOpen && i === 0}
@@ -89,13 +89,23 @@ const Products = () => {
             noRightRadius={drawerOpen && i === 0 && activeCardIndex === 0}
           >
             <ProductImageWrapper>
-              <ProductImage src={p.img} alt={p.title} />
+              <ProductImage
+                src={product.img}
+                alt={product.title}
+                loading="lazy"
+                decoding="async"
+                onLoad={(e) => {
+                  const img = e.target as HTMLImageElement
+                  img.style.opacity = '1'
+                }}
+                style={{ opacity: 0, transition: 'opacity 0.3s ease-in-out' }}
+              />
             </ProductImageWrapper>
             <ProductInfo>
-              <ProductTitle>{p.title}</ProductTitle>
-              <ProductDesc>{p.desc}</ProductDesc>
-              <ProductPrice>{p.price}</ProductPrice>
-              <StarsOpinions opinions={p.opinions} />
+              <ProductTitle>{product.title}</ProductTitle>
+              <ProductDesc>{product.desc}</ProductDesc>
+              <ProductPrice>{product.price}</ProductPrice>
+              <StarsOpinions opinions={product.opinions} />
             </ProductInfo>
           </ProductCard>
         ))}
