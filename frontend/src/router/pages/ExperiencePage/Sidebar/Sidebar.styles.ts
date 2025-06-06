@@ -7,6 +7,11 @@ export const SidebarWrapper = styled.aside`
   padding: 12px 16px 24px 16px;
   border-right: 1px solid #e5e5e5;
   font-size: 15px;
+  @media (max-width: 1280px) {
+    width: 180px;
+    padding: 10px 10px 20px 10px;
+    font-size: 16px;
+  }
   @media (min-width: 1500px) {
     width: 220px;
     padding: 20px 24px 32px 24px;
@@ -25,6 +30,10 @@ export const FilterLabel = styled.div`
   font-weight: 600;
   font-size: 16px;
   margin-bottom: 8px;
+
+  @media (max-width: 1280px) {
+    font-size: 14px;
+  }
 `
 
 export const SizeGrid = styled.div`
@@ -46,6 +55,10 @@ export const SizeButton = styled.button<{ active?: boolean }>`
   cursor: pointer;
   outline: none;
   box-shadow: ${({ active }) => (active ? '0 0 0 2px #2222' : 'none')};
+
+  @media (max-width: 1280px) {
+    font-size: 14px;
+  }
 `
 
 export const AvailabilitySection = styled.div`
@@ -68,6 +81,10 @@ export const CheckboxRow = styled.label<{ checked?: boolean }>`
   span {
     color: ${({ checked }) => (checked ? '#222' : '#888')};
     font-weight: ${({ checked }) => (checked ? 600 : 400)};
+  }
+
+  @media (max-width: 1280px) {
+    font-size: 12px;
   }
 `
 
@@ -107,12 +124,23 @@ export const CategoryItem = styled.div`
   align-items: center;
   gap: 6px;
   font-size: 13px;
+
   &:hover {
     color: #000;
   }
+
+  @media (max-width: 1280px) {
+    color: red;
+    font-size: 10px;
+    padding: 4px 6px;
+  }
+
   svg {
     font-size: 15px;
     min-width: 15px;
+    @media (max-width: 1280px) {
+      font-size: 10px;
+    }
   }
 `
 
@@ -127,4 +155,8 @@ export const PlaceholderSection = styled.div`
   align-items: center;
   justify-content: space-between;
   cursor: not-allowed;
+
+  @media (max-width: 1280px) {
+    font-size: 14px;
+  }
 `

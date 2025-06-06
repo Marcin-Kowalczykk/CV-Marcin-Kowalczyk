@@ -5,12 +5,40 @@ export const GuideContainer = styled.div`
   position: fixed;
   top: 32px;
   left: 32px;
+  right: auto;
   z-index: 1000;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
   pointer-events: none;
+  max-width: 220px;
+
+  p {
+    margin: 8px 0 0 0;
+    text-align: center;
+    align-self: flex-start;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 6px;
+    padding: 4px 10px;
+    max-width: 180px;
+    pointer-events: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  }
+
+  @media screen and (max-width: 1280px) and (max-height: 700px) {
+    top: 25px;
+    left: 12px;
+    transform: scale(0.8);
+    transform-origin: top left;
+
+    p {
+      font-size: 12px;
+    }
+  }
 `
 
 export const ArrowKey = styled(motion.div)<{ active: boolean }>`

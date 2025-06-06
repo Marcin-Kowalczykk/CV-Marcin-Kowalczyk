@@ -7,6 +7,10 @@ export const SearchTabsColumn = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  @media (max-width: 1280px) {
+    max-width: 100%;
+    margin: 0 auto 24px auto;
+  }
   @media (min-width: 1500px) {
     max-width: 1560px;
   }
@@ -21,6 +25,10 @@ export const StyledSearchBar = styled.div`
   margin-bottom: 18px;
   max-width: 100%;
   width: 415px;
+  @media (max-width: 1280px) {
+    width: 100%;
+    max-width: 380px;
+  }
   @media (min-width: 1500px) {
     width: 580px;
   }

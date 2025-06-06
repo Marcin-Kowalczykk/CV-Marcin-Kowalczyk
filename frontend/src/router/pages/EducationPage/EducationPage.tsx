@@ -15,6 +15,13 @@ import {
   MOVE_SPEED,
   PLATFORM_DESCRIPTIONS,
   WIN_TEXT,
+  SMALL_SCREEN_GAME_WIDTH,
+  SMALL_SCREEN_PLAYER_SIZE,
+  SMALL_SCREEN_PLATFORM_HEIGHT,
+  SMALL_SCREEN_MOVE_SPEED,
+  SMALL_SCREEN_JUMP_VELOCITY,
+  SMALL_SCREEN_PLATFORM_WIDTHS,
+  PLATFORM_WIDTHS,
 } from './constants'
 import { getPlatformPositions } from './helpers'
 import {
@@ -33,25 +40,40 @@ import {
 } from './EducationPage.styles'
 
 const EducationPage = () => {
+  const [isSmallScreen, setIsSmallScreen] = useState(
+    window.innerWidth <= 1280 && window.innerHeight <= 725,
+  )
+
+  const gameWidth = isSmallScreen ? SMALL_SCREEN_GAME_WIDTH : GAME_WIDTH
+  const playerSize = isSmallScreen ? SMALL_SCREEN_PLAYER_SIZE : PLAYER_SIZE
+  const platformHeight = isSmallScreen ? SMALL_SCREEN_PLATFORM_HEIGHT : PLATFORM_HEIGHT
+  const moveSpeed = isSmallScreen ? SMALL_SCREEN_MOVE_SPEED : MOVE_SPEED
+  const jumpVelocity = isSmallScreen ? SMALL_SCREEN_JUMP_VELOCITY : JUMP_VELOCITY
+  const platformWidths = isSmallScreen ? SMALL_SCREEN_PLATFORM_WIDTHS : PLATFORM_WIDTHS
+
   const [gameHeight, setGameHeight] = useState(Math.min(window.innerHeight - 2 * GAME_MARGIN, 800))
+
   useEffect(() => {
     const handleResize = () => {
       const newHeight = Math.min(window.innerHeight - 2 * GAME_MARGIN, 800)
       setGameHeight(newHeight)
+      setIsSmallScreen(window.innerWidth <= 1280 && window.innerHeight <= 725)
     }
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
   const [player, setPlayer] = useState({
-    x: GAME_WIDTH / 2 - PLAYER_SIZE / 2,
-    y: gameHeight - PLAYER_SIZE,
+    x: gameWidth / 2 - playerSize / 2,
+    y: gameHeight - playerSize,
     vx: 0,
     vy: 0,
     onGround: false,
     standingPlatformIdx: -1,
   })
-  const [platforms, setPlatforms] = useState(getPlatformPositions(gameHeight))
+  const [platforms, setPlatforms] = useState(
+    getPlatformPositions(gameHeight, platformWidths, jumpVelocity, GRAVITY, isSmallScreen),
+  )
 
   const [win, setWin] = useState(false)
   const [confetti, setConfetti] = useState(false)
@@ -71,9 +93,11 @@ const EducationPage = () => {
   })
 
   useEffect(() => {
-    setPlayer((prev) => ({ ...prev, y: gameHeight - PLAYER_SIZE }))
-    setPlatforms(getPlatformPositions(gameHeight))
-  }, [gameHeight])
+    setPlayer((prev) => ({ ...prev, y: gameHeight - playerSize }))
+    setPlatforms(
+      getPlatformPositions(gameHeight, platformWidths, jumpVelocity, GRAVITY, isSmallScreen),
+    )
+  }, [gameHeight, platformWidths, jumpVelocity, playerSize])
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -97,28 +121,28 @@ const EducationPage = () => {
       setPlayer((prev) => {
         const { x, y, onGround } = prev
         let { vx, vy } = prev
-        if (keys.current['ArrowLeft']) vx = -MOVE_SPEED
-        else if (keys.current['ArrowRight']) vx = MOVE_SPEED
+        if (keys.current['ArrowLeft']) vx = -moveSpeed
+        else if (keys.current['ArrowRight']) vx = moveSpeed
         else vx = 0
-        if (keys.current['ArrowUp'] && onGround) vy = JUMP_VELOCITY
+        if (keys.current['ArrowUp'] && onGround) vy = jumpVelocity
         vy += GRAVITY
         const nextXRaw = x + vx
-        const nextX = Math.max(0, Math.min(GAME_WIDTH - PLAYER_SIZE, nextXRaw))
+        const nextX = Math.max(0, Math.min(gameWidth - playerSize, nextXRaw))
         let nextY = y + vy
         let nextOnGround = false
         let standingPlatformIdx = -1
         const newPlatforms = [...platforms]
         for (let i = 0; i < platforms.length; i++) {
           const p = platforms[i]
-          const playerCenter = nextX + PLAYER_SIZE / 2
+          const playerCenter = nextX + playerSize / 2
           if (
             vy > 0 &&
-            y + PLAYER_SIZE <= p.y &&
-            nextY + PLAYER_SIZE >= p.y &&
+            y + playerSize <= p.y &&
+            nextY + playerSize >= p.y &&
             playerCenter > p.x &&
             playerCenter < p.x + p.width
           ) {
-            nextY = p.y - PLAYER_SIZE
+            nextY = p.y - playerSize
             vy = 0
             nextOnGround = true
             standingPlatformIdx = i
@@ -131,8 +155,8 @@ const EducationPage = () => {
           setWin(true)
           setConfetti(true)
         }
-        if (nextY > gameHeight - PLAYER_SIZE) {
-          nextY = gameHeight - PLAYER_SIZE
+        if (nextY > gameHeight - playerSize) {
+          nextY = gameHeight - playerSize
           vy = 0
           nextOnGround = true
           standingPlatformIdx = -1
@@ -144,7 +168,7 @@ const EducationPage = () => {
     }
     animation = requestAnimationFrame(loop)
     return () => cancelAnimationFrame(animation)
-  }, [platforms, win, gameHeight])
+  }, [platforms, win, gameHeight, gameWidth, playerSize, moveSpeed, jumpVelocity])
 
   useEffect(() => {
     if (win) {
@@ -182,14 +206,16 @@ const EducationPage = () => {
 
   const handleRestart = () => {
     setPlayer({
-      x: GAME_WIDTH / 2 - PLAYER_SIZE / 2,
-      y: gameHeight - PLAYER_SIZE,
+      x: gameWidth / 2 - playerSize / 2,
+      y: gameHeight - playerSize,
       vx: 0,
       vy: 0,
       onGround: false,
       standingPlatformIdx: -1,
     })
-    setPlatforms(getPlatformPositions(gameHeight))
+    setPlatforms(
+      getPlatformPositions(gameHeight, platformWidths, jumpVelocity, GRAVITY, isSmallScreen),
+    )
     setWin(false)
     setConfetti(false)
     setDisplayedText([])
@@ -203,11 +229,11 @@ const EducationPage = () => {
       <GameWrapper>
         <MatrixRain />
         <ArrowKeysGuide />
-        <GameArea gameHeight={gameHeight} tabIndex={0} ref={gameAreaRef}>
+        <GameArea gameHeight={gameHeight} gameWidth={gameWidth} tabIndex={0} ref={gameAreaRef}>
           <GameFont>
             {confetti && (
               <Confetti
-                width={GAME_WIDTH}
+                width={gameWidth}
                 height={gameHeight}
                 numberOfPieces={250}
                 recycle={false}
@@ -245,13 +271,18 @@ const EducationPage = () => {
             )}
             {platforms.map((p, i) => (
               <React.Fragment key={i}>
-                <PlatformContainer left={p.x} top={p.y} width={p.width}>
+                <PlatformContainer
+                  left={p.x}
+                  top={p.y}
+                  width={p.width}
+                  platformHeight={platformHeight}
+                >
                   <Platform active={p.active} width={p.width} />
                 </PlatformContainer>
                 {p.active && PLATFORM_DESCRIPTIONS[i] && (
                   <DescriptionBox
                     left={p.x}
-                    top={p.y + PLATFORM_HEIGHT + 16}
+                    top={p.y + platformHeight + 16}
                     width={p.width}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -275,7 +306,7 @@ const EducationPage = () => {
                 )}
               </React.Fragment>
             ))}
-            <AnimatedPlayerWrapper style={spring}>
+            <AnimatedPlayerWrapper style={spring} playerSize={playerSize}>
               <Player />
             </AnimatedPlayerWrapper>
           </GameFont>
