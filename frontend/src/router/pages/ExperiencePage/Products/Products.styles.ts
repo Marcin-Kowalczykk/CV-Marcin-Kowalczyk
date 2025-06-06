@@ -41,8 +41,6 @@ export const ProductCard = styled.div<{
   flex-direction: column;
   align-items: stretch;
   width: 100%;
-  max-width: 370px;
-  min-width: 260px;
   height: 60vh;
   max-height: 520px;
   min-height: 320px;
@@ -57,13 +55,9 @@ export const ProductCard = styled.div<{
 
   @media (max-width: 1280px) {
     height: 55vh;
-    max-height: 480px;
-    min-height: 280px;
   }
 
   @media (min-width: 1500px) {
-    width: 33vw;
-    max-width: 500px;
     height: 65vh;
     max-height: 700px;
     min-width: 320px;
