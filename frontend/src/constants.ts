@@ -17,7 +17,7 @@ import {
   SiGit,
 } from 'react-icons/si'
 
-export const CATEGORIES = [
+export const SKILLS_LIST = [
   { name: 'HTML', icon: SiHtml5, color: '#E44D26' },
   { name: 'CSS', icon: SiCss3, color: '#1572B6' },
   { name: 'Sass', icon: SiSass, color: '#CC6699' },

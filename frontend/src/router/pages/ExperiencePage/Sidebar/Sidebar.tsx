@@ -14,7 +14,7 @@ import {
   CategoryItem,
   PlaceholderSection,
 } from './Sidebar.styles'
-import { CATEGORIES } from './constants'
+import { SKILLS_LIST } from '../../../../constants'
 
 const Sidebar = () => {
   const [catOpen, setCatOpen] = useState(false)
@@ -52,7 +52,7 @@ const Sidebar = () => {
           <span>{catOpen ? <FaChevronDown size={14} /> : <FaChevronRight size={14} />}</span>
         </CategoryHeader>
         <CategoryList open={catOpen}>
-          {CATEGORIES.map(({ name, icon: Icon, color }) => (
+          {SKILLS_LIST.map(({ name, icon: Icon, color }) => (
             <CategoryItem key={name}>
               <Icon color={color} /> {name}
             </CategoryItem>

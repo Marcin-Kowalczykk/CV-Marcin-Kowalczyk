@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { pulseBorder } from '../ExperiencePage.styles'
 
 export const IconsRow = styled.div`
   display: flex;
@@ -22,6 +23,7 @@ export const IconButton = styled.a<{ active?: boolean }>`
   cursor: pointer;
   box-shadow: ${({ active }) => (active ? '0 0 0 4px #fff, 0 0 0 6px #222' : 'none')};
   position: relative;
+  animation: ${pulseBorder} 1.5s infinite;
   transition:
     box-shadow 0.2s,
     background 0.2s;

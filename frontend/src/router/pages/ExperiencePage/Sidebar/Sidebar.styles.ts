@@ -1,4 +1,5 @@
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
+import { pulseBorder } from '../ExperiencePage.styles'
 
 export const SidebarWrapper = styled.aside`
   width: 200px;
@@ -73,21 +74,6 @@ export const CheckboxRow = styled.label<{ checked?: boolean }>`
 export const CheckboxCount = styled.span`
   color: #3a5aff;
   margin-left: 4px;
-`
-
-export const pulseBorder = keyframes`
-  0% {
-    box-shadow: 0 0 0 0 rgba(58, 90, 255, 0.5);
-    border-color: #3a5aff;
-  }
-  70% {
-    box-shadow: 0 0 0 6px rgba(58, 90, 255, 0);
-    border-color: #3a5aff;
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(58, 90, 255, 0);
-    border-color: #3a5aff;
-  }
 `
 
 export const CategoryHeader = styled.div`

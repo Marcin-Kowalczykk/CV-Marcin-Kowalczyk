@@ -1,4 +1,16 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+
+export const pulseBorder = keyframes`
+  0% {
+    box-shadow: 0 0 0 0 rgba(58, 90, 255, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(58, 90, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(58, 90, 255, 0);
+  }
+`
 
 export const Wrapper = styled.div`
   display: flex;
