@@ -7,3 +7,11 @@ export const StyledToastContainer = styled(ToastContainer)`
     bottom: auto;
   }
 `
+export const StyledInProgress = styled.div`
+  position: absolute;
+  top: 6rem;
+  left: 2rem;
+  z-index: 10;
+  display: flex;
+  color: orange;
+`
