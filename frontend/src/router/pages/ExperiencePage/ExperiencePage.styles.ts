@@ -59,6 +59,7 @@ export const PageTitle = styled.h1`
 
 export const IconsWrapper = styled.div`
   position: absolute;
+  border-radius: 10px;
   top: 32px;
   right: 48px;
   z-index: 10;
@@ -75,11 +76,12 @@ export const HamburgerButton = styled.button<{ isOpen: boolean }>`
   top: 16px;
   left: 16px;
   z-index: 100;
-  background: none;
+  background: white;
+  border-radius: 4px;
   border: none;
   cursor: pointer;
-  padding: 8px;
-  color: gray;
+  padding: 4px;
+  color: #222;
 
   @media (max-width: 768px) {
     display: ${({ isOpen }) => (isOpen ? 'none' : 'block')};

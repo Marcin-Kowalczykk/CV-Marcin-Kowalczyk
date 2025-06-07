@@ -15,6 +15,7 @@ import {
   PlaceholderSection,
 } from './Sidebar.styles'
 import { SKILLS_LIST } from '../../../../constants'
+import { SIZES } from './constants'
 
 const Sidebar = () => {
   const [catOpen, setCatOpen] = useState(false)
@@ -25,12 +26,11 @@ const Sidebar = () => {
       <div>
         <FilterLabel>Size</FilterLabel>
         <SizeGrid>
-          <SizeButton>XS</SizeButton>
-          <SizeButton>S</SizeButton>
-          <SizeButton>M</SizeButton>
-          <SizeButton>L</SizeButton>
-          <SizeButton>XL</SizeButton>
-          <SizeButton active>2XL</SizeButton>
+          {SIZES.map((size) => (
+            <SizeButton key={size} active={size === '2XL'}>
+              {size}
+            </SizeButton>
+          ))}
         </SizeGrid>
       </div>
       <AvailabilitySection>
