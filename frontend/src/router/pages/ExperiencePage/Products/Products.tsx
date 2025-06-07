@@ -13,9 +13,13 @@ import {
 } from './Products.styles'
 import { PRODUCT_DATA, PLACEHOLDER_IMAGES, PROJECTS, RESPONSIBILITIES } from './constants'
 import StarsOpinions from './StarsOpinions/StarsOpinions'
+import { Modal } from '../../../../components/Modal/Modal'
+import MobileProductDetails from './MobileProductDetails/MobileProductDetails'
+import { useAppContext } from '../../../../context/AppContext'
 
 const Products = () => {
   const [drawerContentVisible, setDrawerContentVisible] = useState(false)
+  const [modalOpen, setModalOpen] = useState(false)
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [drawerRect, setDrawerRect] = useState<{
     top: number
@@ -25,6 +29,7 @@ const Products = () => {
   }>({ top: 0, left: 0, height: 0, width: 0 })
   const [drawerClickedOutside, setDrawerClickedOutside] = useState(false)
   const [activeCardIndex, setActiveCardIndex] = useState<number | null>(null)
+  const { isMobile } = useAppContext()
   const gridRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -47,6 +52,10 @@ const Products = () => {
   }, [drawerOpen])
 
   const handleCardClick = (e: React.MouseEvent<HTMLDivElement>, idx: number) => {
+    if (isMobile) {
+      setModalOpen(true)
+      return
+    }
     if (drawerOpen && activeCardIndex === idx) {
       setDrawerOpen(false)
       setActiveCardIndex(null)
@@ -79,7 +88,7 @@ const Products = () => {
   return (
     <div style={{ position: 'relative' }} ref={gridRef}>
       <ProductsGrid>
-        {PRODUCT_DATA.map((product, i) => (
+        {(isMobile ? PRODUCT_DATA.slice(0, 2) : PRODUCT_DATA).map((product, i) => (
           <ProductCard
             key={i}
             pulse={!drawerOpen && i === 0}
@@ -109,9 +118,7 @@ const Products = () => {
             </ProductInfo>
           </ProductCard>
         ))}
-        {PLACEHOLDER_IMAGES.map((img, i) => (
-          <PlaceholderCard key={i} bg={img} />
-        ))}
+        {!isMobile && PLACEHOLDER_IMAGES.map((img, i) => <PlaceholderCard key={i} bg={img} />)}
       </ProductsGrid>
       <AnimatedDrawer
         open={drawerOpen && activeCardIndex === 0 && !drawerClickedOutside}
@@ -125,6 +132,11 @@ const Products = () => {
         projects={PROJECTS}
         responsibilities={RESPONSIBILITIES}
       />
+      {isMobile && (
+        <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
+          <MobileProductDetails />
+        </Modal>
+      )}
     </div>
   )
 }

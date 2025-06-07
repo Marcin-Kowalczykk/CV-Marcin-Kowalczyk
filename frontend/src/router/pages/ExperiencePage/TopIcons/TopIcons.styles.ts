@@ -6,6 +6,12 @@ export const IconsRow = styled.div`
   gap: 28px;
   align-items: center;
   margin-right: 5vh;
+  @media (max-width: 768px) {
+    margin: 0;
+    padding: 0;
+    gap: 10px;
+    margin-right: 15vw;
+  }
 `
 
 export const IconButton = styled.a<{ active?: boolean }>`

@@ -25,6 +25,14 @@ export const Container = styled.div<{ visible?: boolean }>`
     font-size: 1.08rem;
     padding: 0 0 28px 0;
   }
+
+  @media (max-width: 768px) {
+    width: 95%;
+    padding: 0 0 18px 0;
+    margin: 0;
+    font-size: 0.85rem;
+    height: 99vh;
+  }
 `
 
 export const ReadmeHeader = styled.div`
@@ -58,6 +66,10 @@ export const ReadmeHeaderTitle = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
 `
 
 export const ReadmeHeaderRight = styled.div`
@@ -67,6 +79,10 @@ export const ReadmeHeaderRight = styled.div`
   color: #8b949e;
   font-size: 1.2rem;
   margin-right: 14px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `
 
 export const OrangeBar = styled.div`
@@ -116,6 +132,10 @@ export const Title = styled.h1`
     font-size: 1.7rem;
     margin: 0 0 18px 0;
   }
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
 `
 
 export const SectionHeader = styled.h2`
@@ -131,6 +151,10 @@ export const SectionHeader = styled.h2`
     font-size: 1.18rem;
     margin: 0 0 14px 0;
     padding-bottom: 6px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 10px;
   }
 `
 
@@ -165,6 +189,11 @@ export const SkillItem = styled.li<{ visible: boolean }>`
   @media (max-width: 1280px) {
     font-size: 0.9rem;
   }
+
+  @media (max-width: 768px) {
+    margin-bottom: 1px;
+    font-size: 0.6rem;
+  }
 `
 
 export const IconWrap = styled.span`
@@ -178,5 +207,10 @@ export const IconWrap = styled.span`
     margin-right: 14px;
     min-width: 26px;
     min-height: 26px;
+  }
+
+  @media (max-height: 700px) {
+    padding: 0;
+    margin: 0;
   }
 `

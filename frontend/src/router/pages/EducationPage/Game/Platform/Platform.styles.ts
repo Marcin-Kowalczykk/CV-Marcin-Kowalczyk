@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const PlatformWrapper = styled.div<{ active: boolean; width: number }>`
+export const PlatformWrapper = styled.div<{ active: boolean; width: number | string }>`
   width: ${({ width }) => width}px;
   height: 28px;
   background: ${({ active }) =>

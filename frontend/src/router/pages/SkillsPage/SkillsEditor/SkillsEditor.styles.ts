@@ -30,6 +30,10 @@ export const EditorBody = styled.div`
   font-weight: bold;
   font-size: 14px;
   color: ${VS_CODE.TEXT};
+
+  @media (max-width: 768px) {
+    font-size: 9px;
+  }
 `
 
 export const LineNumbers = styled.div`
@@ -40,6 +44,11 @@ export const LineNumbers = styled.div`
   padding: 16px 8px;
   min-width: 36px;
   border-right: 1px solid ${VS_CODE.BORDER};
+
+  @media (max-width: 768px) {
+    font-size: 9px;
+    padding: 16px 4px;
+  }
 `
 
 export const CodeBlock = styled.pre`
@@ -53,6 +62,10 @@ export const CodeBlock = styled.pre`
   font-family: inherit;
   font-size: inherit;
   font-weight: inherit;
+
+  @media (max-width: 768px) {
+    padding: 16px 4px;
+  }
 `
 
 export const CodeLine = styled.div`

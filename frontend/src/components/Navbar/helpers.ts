@@ -3,7 +3,7 @@ import { NavbarVariant } from './model'
 export const getCometColor = (variant: NavbarVariant, isHovered: boolean): string => {
   switch (variant) {
     case 'light':
-      return '#181818'
+      return 'gray'
     case 'green':
       return '#00ff41'
     case 'blue':
@@ -12,7 +12,8 @@ export const getCometColor = (variant: NavbarVariant, isHovered: boolean): strin
   }
 }
 
-export const getNavVariant = (pathname: string): NavbarVariant => {
+export const getNavVariant = (pathname: string, isMobile: boolean): NavbarVariant => {
+  if (isMobile) return 'light'
   if (pathname.startsWith('/experience')) return 'light'
   if (pathname.startsWith('/education')) return 'green'
   if (pathname.startsWith('/hobbies')) return 'green'

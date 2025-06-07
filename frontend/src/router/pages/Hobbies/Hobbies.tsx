@@ -4,6 +4,7 @@ import { FaGamepad, FaMicrochip } from 'react-icons/fa'
 import { CgGym } from 'react-icons/cg'
 import { GiChickenLeg } from 'react-icons/gi'
 import { MdTv } from 'react-icons/md'
+import { useAppContext } from '../../../context/AppContext'
 
 import {
   GlobalStyle,
@@ -21,10 +22,12 @@ import {
 } from './Hobbies.styles'
 import { renderColoredHeader, renderColoredList } from './helpers'
 import { HOBBIES_DATA } from './constants'
+import MobileContentList from './MobileContentList/MobileContentList'
 
 const HobbyContentMotion = motion(HobbyContent)
 
 const Hobbies = () => {
+  const { isMobile } = useAppContext()
   const [selectedHobbies, setSelectedHobbies] = useState<number[]>([])
 
   const pixelSvgs: Record<string, React.ReactNode> = {
@@ -84,11 +87,15 @@ const Hobbies = () => {
                         __html: renderColoredHeader(hobby.title),
                       }}
                     />
-                    <HobbyItems
-                      dangerouslySetInnerHTML={{
-                        __html: renderColoredList(hobby.items),
-                      }}
-                    />
+                    {isMobile ? (
+                      <MobileContentList items={hobby.items} />
+                    ) : (
+                      <HobbyItems
+                        dangerouslySetInnerHTML={{
+                          __html: renderColoredList(hobby.items),
+                        }}
+                      />
+                    )}
                   </HobbyContentMotion>
                 )}
               </AnimatePresence>

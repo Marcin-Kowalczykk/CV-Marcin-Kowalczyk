@@ -11,6 +11,9 @@ export const TabsWrapper = styled.div`
   grid-template-rows: repeat(2, auto);
   gap: 8px 16px;
   width: 100%;
+  @media (max-width: 768px) {
+    gap: 4px 8px;
+  }
 `
 
 export const TabButton = styled.button<{ active?: boolean }>`
@@ -30,5 +33,10 @@ export const TabButton = styled.button<{ active?: boolean }>`
 
   @media (max-width: 1280px) {
     font-size: 12px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 5px;
+    padding: 4px 10px;
   }
 `

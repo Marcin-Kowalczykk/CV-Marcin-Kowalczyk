@@ -18,12 +18,14 @@ import {
   SkillItem,
   IconWrap,
 } from './GithubReadme.styles'
+import { useAppContext } from '../../../../context/AppContext'
 
 const ANIMATION_DELAY = 80
 
 const GithubReadme: React.FC<{ show: boolean }> = ({ show }) => {
   const [visibleCount, setVisibleCount] = useState(0)
   const [containerVisible, setContainerVisible] = useState(false)
+  const { isMobile } = useAppContext()
 
   useEffect(() => {
     if (!show) {
@@ -50,7 +52,7 @@ const GithubReadme: React.FC<{ show: boolean }> = ({ show }) => {
     <Container visible={containerVisible}>
       <ReadmeHeader>
         <ReadmeHeaderLeft>
-          <GoBook size={20} style={{ color: '#c9d1d9' }} />
+          <GoBook size={isMobile ? 16 : 20} style={{ color: '#c9d1d9' }} />
           <ReadmeHeaderTitle>README</ReadmeHeaderTitle>
         </ReadmeHeaderLeft>
         <ReadmeHeaderRight>
@@ -67,7 +69,7 @@ const GithubReadme: React.FC<{ show: boolean }> = ({ show }) => {
           {SKILLS_LIST.map((cat, idx) => (
             <SkillItem key={cat.name} visible={idx < visibleCount}>
               <IconWrap>
-                <cat.icon color={cat.color} size={20} />
+                <cat.icon color={cat.color} size={isMobile ? 12 : 20} />
               </IconWrap>
               <span>{cat.name}</span>
             </SkillItem>
