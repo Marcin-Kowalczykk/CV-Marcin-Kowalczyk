@@ -47,6 +47,7 @@ export const ModalContent = styled.div`
   animation: ${slideIn} 0.3s ease-out;
   @media (max-width: 768px) {
     padding: 10px;
+    margin-top: 6rem;
   }
 `
 

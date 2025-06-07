@@ -1,13 +1,14 @@
 import styled from 'styled-components'
 
 export const Section = styled.div`
-  margin-bottom: 24px;
+  margin: 1rem;
+  text-align: left;
 `
 
 export const SectionTitle = styled.h2`
   font-size: 18px;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin: 10px;
   color: #2a2a2a;
 `
 
