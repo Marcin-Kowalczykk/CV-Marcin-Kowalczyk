@@ -28,7 +28,7 @@ export const NavContainer = styled.nav`
 `
 
 export const HamburgerButton = styled.button<{ variant?: NavbarVariant }>`
-  background: none;
+  background: ${({ variant }) => (variant === 'lightCircle' ? '#fff' : 'none')};
   border: none;
   cursor: pointer;
   padding: 0;
@@ -47,6 +47,8 @@ export const HamburgerButton = styled.button<{ variant?: NavbarVariant }>`
   color: ${({ variant }) => {
     if (variant === 'light') return 'gray'
     if (variant === 'green') return '#00ff41'
+    if (variant === 'extraLight') return '#fff'
+    if (variant === 'lightCircle') return '#181818'
     return '#fff'
   }};
   &:hover {
@@ -60,10 +62,12 @@ export const HamburgerLine = styled(motion.span)<{
 }>`
   width: 26px;
   height: 4px;
-  background-color: ${({ isHovered, variant }) => {
-    if (variant === 'light') return isHovered ? 'lightgray' : 'gray'
-    if (variant === 'green') return isHovered ? '#00ff41' : '#009933'
-    return isHovered ? '#00d4ff' : '#fff'
+  background-color: ${({ variant }) => {
+    if (variant === 'light') return 'gray'
+    if (variant === 'green') return '#009933'
+    if (variant === 'extraLight') return '#fff'
+    if (variant === 'lightCircle') return '#181818'
+    return '#fff'
   }};
   border-radius: 10px;
   transition: background-color 0.2s;
@@ -74,10 +78,18 @@ export const Menu = styled(motion.div)<{ isOpen: boolean; variant?: NavbarVarian
   position: absolute;
   top: 100%;
   right: 0;
-  background: ${({ variant }) => (variant === 'light' ? '#fff' : 'none')};
-  box-shadow: ${({ variant }) => (variant === 'light' ? '0 2px 16px rgba(0,0,0,0.07)' : 'none')};
-  border: ${({ variant }) => (variant === 'light' ? '1px solid #e0e0e0' : 'none')};
-  border-radius: ${({ variant }) => (variant === 'light' ? '12px' : '0')};
+  background: ${({ variant }) =>
+    variant === 'light' || variant === 'extraLight' || variant === 'lightCircle' ? '#fff' : 'none'};
+  box-shadow: ${({ variant }) =>
+    variant === 'light' || variant === 'extraLight' || variant === 'lightCircle'
+      ? '0 2px 16px rgba(0,0,0,0.07)'
+      : 'none'};
+  border: ${({ variant }) =>
+    variant === 'light' || variant === 'extraLight' || variant === 'lightCircle'
+      ? '1px solid #e0e0e0'
+      : 'none'};
+  border-radius: ${({ variant }) =>
+    variant === 'light' || variant === 'extraLight' || variant === 'lightCircle' ? '12px' : '0'};
   padding: 0;
   display: ${(props) => (props.isOpen ? 'block' : 'none')};
   min-width: 150px;
@@ -91,7 +103,8 @@ export const MenuItem = styled(motion.div)<{ variant?: NavbarVariant }>`
   border-radius: 10px;
   font-size: 1.35rem;
   color: ${({ variant }) => {
-    if (variant === 'light') return '#181818'
+    if (variant === 'light' || variant === 'extraLight' || variant === 'lightCircle')
+      return '#181818'
     if (variant === 'green') return '#fff'
     return '#fff'
   }};
@@ -103,7 +116,8 @@ export const MenuItem = styled(motion.div)<{ variant?: NavbarVariant }>`
     background 0.2s;
   &:hover {
     color: ${({ variant }) => {
-      if (variant === 'light') return '#00d4ff'
+      if (variant === 'light' || variant === 'extraLight' || variant === 'lightCircle')
+        return '#00d4ff'
       if (variant === 'green') return '#00ff41'
       return '#00d4ff'
     }};
