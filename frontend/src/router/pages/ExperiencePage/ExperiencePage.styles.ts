@@ -25,7 +25,8 @@ export const Main = styled.main`
   flex: 1;
   padding: 24px 32px 16px 32px;
   height: 100vh;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
 
