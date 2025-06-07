@@ -3,8 +3,8 @@ import { ToastContainer } from 'react-toastify'
 
 export const StyledToastContainer = styled(ToastContainer)`
   @media (max-width: 768px) {
-    top: 1rem;
-    bottom: auto;
+    top: auto;
+    bottom: 7rem;
   }
 `
 export const StyledInProgress = styled.div`
