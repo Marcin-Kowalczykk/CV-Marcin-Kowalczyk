@@ -45,6 +45,9 @@ export const ModalContent = styled.div`
   position: relative;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   animation: ${slideIn} 0.3s ease-out;
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
 `
 
 export const CloseButton = styled.button`
@@ -61,5 +64,9 @@ export const CloseButton = styled.button`
   transition: color 0.2s ease;
   &:hover {
     color: #000;
+  }
+  @media (max-width: 768px) {
+    top: 5px;
+    right: 10px;
   }
 `

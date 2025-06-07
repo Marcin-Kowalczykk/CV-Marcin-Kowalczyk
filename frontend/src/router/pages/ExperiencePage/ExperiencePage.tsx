@@ -1,30 +1,26 @@
 import Sidebar from './Sidebar/Sidebar'
 import TopIcons from './TopIcons/TopIcons'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import HearthConfetti from './HearthConfetti/HearthConfetti'
 import SearchTab from './SearchTab/SearchTab'
 import Products from './Products/Products'
-import { Wrapper, Main, PageTitle, IconsWrapper } from './ExperiencePage.styles'
+import {
+  Wrapper,
+  Main,
+  PageTitle,
+  IconsWrapper,
+  HamburgerButton,
+  MobileSidebar,
+  Overlay,
+} from './ExperiencePage.styles'
+import { FaBars } from 'react-icons/fa'
+import { useAppContext } from '../../../context/AppContext'
 
 const ExperiencePage = () => {
   const [showConfetti, setShowConfetti] = useState(false)
   const [isFading, setIsFading] = useState(false)
-  const [windowSize, setWindowSize] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
-  })
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      })
-    }
-
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const { isMobile, windowSize } = useAppContext()
 
   const handleHeartClick = () => {
     setShowConfetti(true)
@@ -38,13 +34,28 @@ const ExperiencePage = () => {
     }, 2000)
   }
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen)
+  }
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false)
+  }
+
   return (
     <Wrapper>
+      <HamburgerButton onClick={toggleMobileMenu} isOpen={isMobileMenuOpen}>
+        <FaBars size={24} />
+      </HamburgerButton>
+      <MobileSidebar isOpen={isMobileMenuOpen}>
+        <Sidebar />
+      </MobileSidebar>
+      <Overlay isOpen={isMobileMenuOpen} onClick={closeMobileMenu} />
       <IconsWrapper>
         <HearthConfetti showConfetti={showConfetti} isFading={isFading} windowSize={windowSize} />
         <TopIcons onHeartClick={handleHeartClick} />
       </IconsWrapper>
-      <Sidebar />
+      {!isMobile && <Sidebar />}
       <Main>
         <PageTitle>PRODUCTS</PageTitle>
         <SearchTab />

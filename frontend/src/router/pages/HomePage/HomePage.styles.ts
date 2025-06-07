@@ -57,6 +57,7 @@ export const Title = styled.h1`
   margin-bottom: 0.5rem;
   line-height: 1.1;
   cursor: default;
+  user-select: none;
 `
 
 export const Subtitle = styled.p`
@@ -64,6 +65,7 @@ export const Subtitle = styled.p`
   opacity: 0.8;
   margin: 0;
   cursor: default;
+  user-select: none;
 `
 export const Contact = styled.p`
   font-size: clamp(0.5rem, 4vw, 1rem);

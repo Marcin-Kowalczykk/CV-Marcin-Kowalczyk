@@ -130,7 +130,6 @@ export const CategoryItem = styled.div`
   }
 
   @media (max-width: 1280px) {
-    color: red;
     font-size: 10px;
     padding: 4px 6px;
   }

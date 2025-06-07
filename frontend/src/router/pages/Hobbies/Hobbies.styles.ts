@@ -41,6 +41,11 @@ export const Card = styled(motion.div)`
       0 0 0 4px #000,
       0 0 32px #39ff14;
   }
+  @media (max-width: 768px) {
+    width: 60px;
+    height: 60px;
+    border-width: 4px;
+  }
 `
 
 export const RowsContainer = styled.div`
@@ -62,6 +67,11 @@ export const Row = styled.div`
   min-height: 120px;
   margin-bottom: 8px;
   margin-top: 2vh;
+  @media (max-width: 768px) {
+    min-height: 100px;
+    margin-bottom: 4px;
+    margin-top: 1vh;
+  }
 `
 
 export const CardContainer = styled.div`
@@ -83,6 +93,9 @@ export const HobbyHeader = styled.div`
   .tag-content {
     color: #fff;
   }
+  @media (max-width: 768px) {
+    font-size: 0.4rem;
+  }
 `
 
 export const HobbyItems = styled.div`
@@ -96,6 +109,9 @@ export const HobbyItems = styled.div`
   }
   .tag-content {
     color: #fff;
+  }
+  @media (max-width: 768px) {
+    font-size: 0.4rem;
   }
 `
 
@@ -128,16 +144,40 @@ export const HobbyContent = styled(animated.div)`
     text-overflow: ellipsis;
   }
   ul {
-    list-style: none;
-    padding: 0;
+    list-style: disc inside;
+    padding-left: 1.2em;
     margin: 0;
     li {
       font-size: 0.7rem;
       margin: 0.2rem 0;
       color: #fff;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      white-space: normal;
+      overflow: visible;
+      text-overflow: unset;
+      word-break: break-word;
+    }
+  }
+  @media (max-width: 768px) {
+    min-width: 0;
+    width: 70vw;
+    margin-left: 10px;
+    padding: 0.5rem 0.3rem;
+    text-align: center;
+    h1 {
+      font-size: 0.5rem;
+      margin-bottom: 0.3rem;
+      text-align: center;
+    }
+    ul {
+      padding-left: 1em;
+      margin: 0 auto;
+      display: inline-block;
+      li {
+        font-size: 0.38rem;
+        margin: 0.1rem 0;
+        text-decoration: none;
+        list-style: none;
+      }
     }
   }
 `
@@ -146,6 +186,14 @@ export const PixelIcon = styled.div`
   width: 80px;
   height: 80px;
   image-rendering: pixelated;
+  @media (max-width: 768px) {
+    width: 40px;
+    height: 40px;
+    svg {
+      width: 40px;
+      height: 40px;
+    }
+  }
 `
 
 export const QuestionMark = styled(motion.div)`

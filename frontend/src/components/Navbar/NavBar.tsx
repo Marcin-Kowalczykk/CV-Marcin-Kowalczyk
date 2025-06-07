@@ -1,17 +1,33 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import SVGComet from './SVGComet/SVGComet'
 import { itemVariants, menuVariants, menuVariantsLight, NAV_ITEMS } from './constants'
 import { NavContainer, HamburgerButton, HamburgerLine, Menu, MenuItem } from './Navbar.styles'
 import { getCometColor, getNavVariant } from './helpers'
+import { useAppContext } from '../../context/AppContext'
 
 const NavBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isHamburgerHovered, setIsHamburgerHovered] = useState(false)
   const navigate = useNavigate()
   const location = useLocation()
-  const navVariant = getNavVariant(location.pathname)
+  const { isMobile } = useAppContext()
+  const navVariant = getNavVariant(location.pathname, isMobile)
+  const menuRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsOpen(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
 
   const toggleMenu = () => {
     setIsOpen(!isOpen)
@@ -23,7 +39,7 @@ const NavBar: React.FC = () => {
   }
 
   return (
-    <NavContainer>
+    <NavContainer ref={menuRef}>
       <HamburgerButton
         onClick={toggleMenu}
         aria-label="Open navigation menu"

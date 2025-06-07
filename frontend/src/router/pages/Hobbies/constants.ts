@@ -24,7 +24,7 @@ export const HOBBIES_DATA = [
     id: 4,
     title: '<h1> Games </h1>',
     icon: 'game',
-    items: ['<li> RPG </li>', '<li>MMO</li>', '<li> Legaue of Legends </li>', '<li> CS </li>'],
+    items: ['<li> RPG </li>', '<li> MMO </li>', '<li> Legaue of Legends </li>', '<li> CS </li>'],
     animation: 'jumping',
   },
   {

@@ -19,6 +19,17 @@ export const TerminalContainer = styled.div`
   @media (max-width: 1280px) {
     font-size: 11px;
   }
+
+  @media (max-width: 768px) {
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    font-size: 7px;
+    background: #000;
+    min-height: 60px;
+    z-index: 1000;
+  }
 `
 export const TerminalLineWrap = styled.div<{ visible: boolean }>`
   opacity: ${({ visible }) => (visible ? 1 : 0)};

@@ -19,6 +19,13 @@ export const ProductsGrid = styled.div`
     gap: 36px;
     max-width: 1600px;
   }
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    width: 90vw;
+    max-width: 600px;
+    margin: 0 auto;
+    height: auto;
+  }
 `
 
 export const ProductCard = styled.div<{
@@ -62,6 +69,14 @@ export const ProductCard = styled.div<{
     max-height: 700px;
     min-width: 320px;
     min-height: 400px;
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+    min-width: 0;
+    max-width: 100vw;
+    height: auto;
+    min-height: auto;
+    max-height: none;
   }
 `
 
