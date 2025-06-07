@@ -809,6 +809,7 @@ Please change the parent <Route path="${E}"> to <Route path="${E==="/"?"*":`${E}
   animation: ${Q_} 0.3s ease-out;
   @media (max-width: 768px) {
     padding: 10px;
+    margin-top: 6rem;
   }
 `,W_=H.button`
   position: absolute;
@@ -1199,11 +1200,12 @@ solutions. Currently, I am seeking new challenges that will allow me to grow fur
     font-size: 11px;
   }
 `,zR=({opinions:t})=>T.jsxs(_R,{children:[T.jsx(RR,{children:"★★★★★"}),T.jsxs(DR,{children:[t," opinions"]})]}),v3=H.div`
-  margin-bottom: 24px;
+  margin: 1rem;
+  text-align: left;
 `,x3=H.h2`
   font-size: 18px;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin: 10px;
   color: #2a2a2a;
 `,b3=H.ul`
   padding-left: 18px;
@@ -1792,8 +1794,8 @@ ${Ks.map(t=>`- ${t.name}`).join(`
   margin: 0;
 `,KD=()=>T.jsxs(qD,{children:[T.jsx(XD,{}),T.jsx(QD,{children:"Future AI Assistant of Marcin Kowalczyk"}),T.jsx($D,{children:"Coming soon..."})]}),FD=[{path:en.HOME,element:xS},{path:en.EDUCATION,element:w_},{path:en.EXPERIENCE,element:IR},{path:en.SKILLS,element:SD},{path:en.HOBBIES,element:ZD},{path:en.BONUS,element:KD}],WD=H(qb)`
   @media (max-width: 768px) {
-    top: 1rem;
-    bottom: auto;
+    top: auto;
+    bottom: 7rem;
   }
 `;H.div`
   position: absolute;
