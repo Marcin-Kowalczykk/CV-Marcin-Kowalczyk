@@ -15,7 +15,6 @@ export const pulseBorder = keyframes`
 export const Wrapper = styled.div`
   display: flex;
   background: #f7f7f7;
-  min-height: 100vh;
   height: 100vh;
   color: #000;
   overflow: hidden;
@@ -26,9 +25,13 @@ export const Main = styled.main`
   flex: 1;
   padding: 24px 32px 16px 32px;
   height: 100vh;
-  overflow: hidden;
+  overflow: auto;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 1280px) {
+    padding: 10px;
+  }
 
   @media (max-width: 768px) {
     padding: 16px;
@@ -42,7 +45,14 @@ export const PageTitle = styled.h1`
   letter-spacing: 1px;
 
   @media (max-width: 1280px) {
-    visibility: hidden;
+    margin-bottom: 0.3rem;
+    padding: 0;
+    visibility: visible;
+
+    @media (max-width: 768px) {
+      visibility: hidden;
+      margin-bottom: 15px;
+    }
   }
 `
 

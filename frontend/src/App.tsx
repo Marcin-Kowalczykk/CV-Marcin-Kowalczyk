@@ -1,10 +1,10 @@
 import { HashRouter, Routes, Route } from 'react-router-dom'
 import { ROUTES } from './router/routes'
 import React from 'react'
-import { StyledToastContainer } from './App.styles'
 import NavBar from './components/Navbar/NavBar'
 import 'react-toastify/dist/ReactToastify.css'
 import { AppProvider } from './context/AppContext'
+import { ToastContainer } from 'react-toastify'
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
           ))}
         </Routes>
       </HashRouter>
-      <StyledToastContainer position="bottom-right" />
+      <ToastContainer position="bottom-right" />
     </AppProvider>
   )
 }

@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { pulseBorder } from '../ExperiencePage.styles'
 
 export const SidebarWrapper = styled.aside`
+  overflow: auto;
   width: 200px;
   background: #fff;
   padding: 12px 16px 24px 16px;
@@ -57,7 +58,7 @@ export const SizeButton = styled.button<{ active?: boolean }>`
   box-shadow: ${({ active }) => (active ? '0 0 0 2px #2222' : 'none')};
 
   @media (max-width: 1280px) {
-    font-size: 14px;
+    font-size: 12px;
   }
 `
 
@@ -103,6 +104,10 @@ export const CategoryHeader = styled.div`
   animation: ${pulseBorder} 1.5s infinite;
   background: #fafdff;
   padding: 4px 0;
+
+  @media (max-width: 1280px) {
+    font-size: 12px;
+  }
 `
 
 export const CategoryList = styled.ul<{ open: boolean }>`
@@ -110,8 +115,7 @@ export const CategoryList = styled.ul<{ open: boolean }>`
   margin: 0;
   padding: 0 0 0 12px;
   max-height: ${({ open }) => (open ? 'calc(100vh - 250px)' : '0')};
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: auto;
   transition: max-height 0.3s;
   font-size: 14px;
 `
@@ -130,8 +134,8 @@ export const CategoryItem = styled.div`
   }
 
   @media (max-width: 1280px) {
-    font-size: 10px;
-    padding: 4px 6px;
+    font-size: 8px;
+    padding: 2px;
   }
 
   svg {
@@ -156,6 +160,6 @@ export const PlaceholderSection = styled.div`
   cursor: not-allowed;
 
   @media (max-width: 1280px) {
-    font-size: 14px;
+    font-size: 12px;
   }
 `

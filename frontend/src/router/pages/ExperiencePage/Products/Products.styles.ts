@@ -61,7 +61,7 @@ export const ProductCard = styled.div<{
   z-index: ${({ elevated }) => (elevated ? 201 : 1)};
 
   @media (max-width: 1280px) {
-    height: 55vh;
+    height: 75vh;
   }
 
   @media (min-width: 1500px) {

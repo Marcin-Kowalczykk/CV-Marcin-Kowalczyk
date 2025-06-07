@@ -11,9 +11,27 @@ import {
   Contact,
 } from './HomePage.styles'
 import MediaButtons from './MediaButtons/MediaButtons'
+import { toast } from 'react-toastify'
 
 const HomePage = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768)
+
+  useEffect(() => {
+    toast.info('Click on button to enable music !', {
+      position: 'bottom-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      style: {
+        color: 'darkGray',
+        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+        marginBottom: isMobile ? '100px' : '0',
+      },
+    })
+  }, [])
 
   useEffect(() => {
     const handleResize = () => {

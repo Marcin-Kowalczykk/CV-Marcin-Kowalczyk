@@ -17,7 +17,7 @@ export const handleCartClick = ({ isMobile }: { isMobile: boolean }) => {
       padding: '16px 24px',
       borderRadius: '8px',
       boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
-      marginTop: isMobile ? '70px' : '0',
+      marginTop: isMobile ? '80px' : '0',
     },
   })
 }
@@ -39,11 +39,11 @@ export const handleHeartClick = ({
     draggable: true,
     progress: undefined,
     style: {
-      background: isMobile ? 'white' : 'transparent',
+      background: 'white',
       color: 'red',
       fontSize: '1.2rem',
       fontWeight: 'bold',
-      marginTop: isMobile ? '70px' : '0',
+      marginTop: isMobile ? '80px' : '0',
     },
   })
 }

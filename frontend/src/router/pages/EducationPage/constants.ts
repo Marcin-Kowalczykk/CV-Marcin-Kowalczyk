@@ -8,7 +8,7 @@ export const MOVE_SPEED = 7
 
 export const SMALL_SCREEN_GAME_WIDTH = 800
 export const SMALL_SCREEN_PLAYER_SIZE = 50
-export const SMALL_SCREEN_PLATFORM_HEIGHT = 14
+export const SMALL_SCREEN_PLATFORM_HEIGHT = 10
 export const SMALL_SCREEN_MOVE_SPEED = 6
 export const SMALL_SCREEN_JUMP_VELOCITY = -20
 

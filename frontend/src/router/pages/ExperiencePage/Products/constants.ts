@@ -36,7 +36,7 @@ export const PROJECTS = [
 ]
 
 export const RESPONSIBILITIES = [
-  'Developing user interfaces for web applications using HTML, CSS, and TypeScript',
+  'Developing user interfaces for web applications using HTML, CSS, TypeScript and React',
   "Participating in the development team's work in an Agile (Scrum) environment",
   'Implementing UI components based on mockups provided by UI/UX designers',
   'Designing visual components when no mockups are available',
