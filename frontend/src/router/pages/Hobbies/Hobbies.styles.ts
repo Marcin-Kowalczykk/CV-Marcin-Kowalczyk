@@ -6,7 +6,7 @@ export const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
   body {
     font-family: 'Press Start 2P', cursive;
-    background: #000;
+    background: black;
   }
 `
 
@@ -56,6 +56,10 @@ export const RowsContainer = styled.div`
   min-height: 100vh;
   width: 100vw;
   gap: 0;
+  @media (max-width: 1280px) {
+    overflow: auto;
+    background: black;
+  }
 `
 
 export const Row = styled.div`

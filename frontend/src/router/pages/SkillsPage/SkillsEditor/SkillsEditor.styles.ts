@@ -49,6 +49,11 @@ export const LineNumbers = styled.div`
     font-size: 9px;
     padding: 16px 4px;
   }
+
+  @media (max-width: 1280px) {
+    font-size: 10px;
+    padding: 4px;
+  }
 `
 
 export const CodeBlock = styled.pre`
@@ -66,11 +71,21 @@ export const CodeBlock = styled.pre`
   @media (max-width: 768px) {
     padding: 16px 4px;
   }
+
+  @media (max-width: 1280px) {
+    font-size: 10px;
+    padding: 4px;
+  }
 `
 
 export const CodeLine = styled.div`
   height: 22px;
   line-height: 22px;
+
+  @media (max-width: 1280px) {
+    height: 20px;
+    line-height: 20px;
+  }
 `
 
 export const Circle = styled.span<{ color: string; mr?: number }>`

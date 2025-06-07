@@ -26,6 +26,13 @@ export const Container = styled.div<{ visible?: boolean }>`
     padding: 0 0 28px 0;
   }
 
+  @media (max-width: 1280px) {
+    font-size: 0.8rem;
+    padding: 0 0 18px 0;
+    margin: 0;
+    height: 95vh;
+  }
+
   @media (max-width: 768px) {
     width: 95%;
     padding: 0 0 18px 0;
@@ -133,6 +140,10 @@ export const Title = styled.h1`
     margin: 0 0 18px 0;
   }
 
+  @media (max-width: 1280px) {
+    font-size: 1rem;
+  }
+
   @media (max-width: 768px) {
     font-size: 12px;
   }
@@ -151,6 +162,10 @@ export const SectionHeader = styled.h2`
     font-size: 1.18rem;
     margin: 0 0 14px 0;
     padding-bottom: 6px;
+  }
+
+  @media (max-width: 1280px) {
+    font-size: 1rem;
   }
 
   @media (max-width: 768px) {
@@ -187,7 +202,8 @@ export const SkillItem = styled.li<{ visible: boolean }>`
   }
 
   @media (max-width: 1280px) {
-    font-size: 0.9rem;
+    font-size: 0.6rem;
+    margin-bottom: 3px;
   }
 
   @media (max-width: 768px) {
@@ -207,6 +223,11 @@ export const IconWrap = styled.span`
     margin-right: 14px;
     min-width: 26px;
     min-height: 26px;
+  }
+
+  @media (max-width: 1280px) {
+    margin-right: 5px;
+    min-height: 10px;
   }
 
   @media (max-height: 700px) {

@@ -1,6 +1,22 @@
 import styled from 'styled-components'
 import { pulseBorder } from '../ExperiencePage.styles'
 
+export const ProfileText = styled.div`
+  line-height: 1.7;
+  margin-top: 20px;
+  padding: 24px 20px;
+  border-radius: 16px;
+  font-size: 1.15rem;
+  color: #222;
+  letter-spacing: 0.01em;
+  text-align: left;
+
+  @media (max-width: 600px) {
+    padding: 0 15px;
+    font-size: 1rem;
+  }
+`
+
 export const IconsRow = styled.div`
   display: flex;
   gap: 28px;

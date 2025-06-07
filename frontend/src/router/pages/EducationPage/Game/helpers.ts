@@ -9,8 +9,8 @@ const PLATFORM_POSITIONS = (
   isSmallScreen: boolean,
 ) => {
   const maxJump = getMaxJumpHeight(jumpVelocity, gravity)
-  const safeGap = Math.min(maxJump * 0.7, gh / 4)
-  const baseY = isSmallScreen ? gh - 170 : gh - 200
+  const safeGap = Math.min(maxJump * 0.7, gh / 5)
+  const baseY = isSmallScreen ? gh - 150 : gh - 200
   return [
     { x: 60, y: baseY - safeGap * 0 },
     { x: 420, y: baseY - safeGap * 1 },

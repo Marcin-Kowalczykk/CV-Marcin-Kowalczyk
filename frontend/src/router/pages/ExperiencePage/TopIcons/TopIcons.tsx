@@ -3,7 +3,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import { useState } from 'react'
 import { Modal } from '../../../../components/Modal/Modal'
 import { PROFILE_TEXT } from './constants'
-import { IconButton, IconsRow } from './TopIcons.styles'
+import { IconButton, IconsRow, ProfileText } from './TopIcons.styles'
 import { handleCartClick, handleHeartClick } from './helpers'
 import GithubIcon from '../../../../components/Icons/GithubIcon'
 import LinkedinIcon from '../../../../components/Icons/LinkedinIcon'
@@ -16,7 +16,7 @@ const TopIcons = ({ onHeartClick }: { onHeartClick: () => void }) => {
   return (
     <>
       <Modal isOpen={showProfile} onClose={() => setShowProfile(false)}>
-        <p>{PROFILE_TEXT}</p>
+        <ProfileText>{PROFILE_TEXT}</ProfileText>
       </Modal>
       <IconsRow>
         <LinkedinIcon />

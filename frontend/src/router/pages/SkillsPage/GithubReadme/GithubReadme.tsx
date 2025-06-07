@@ -69,7 +69,7 @@ const GithubReadme: React.FC<{ show: boolean }> = ({ show }) => {
           {SKILLS_LIST.map((cat, idx) => (
             <SkillItem key={cat.name} visible={idx < visibleCount}>
               <IconWrap>
-                <cat.icon color={cat.color} size={isMobile ? 12 : 20} />
+                <cat.icon color={cat.color} />
               </IconWrap>
               <span>{cat.name}</span>
             </SkillItem>
