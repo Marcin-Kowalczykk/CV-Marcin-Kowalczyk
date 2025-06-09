@@ -1,21 +1,40 @@
 import styled, { keyframes } from 'styled-components'
 
-const spin = keyframes`
+const progressAnimation = keyframes`
   from {
-    transform: rotate(0deg);
+    width: 0%;
   }
   to {
-    transform: rotate(360deg);
+    width: 36%;
   }
 `
 
-export const LoadingSpinner = styled.div`
-  width: 50px;
-  height: 50px;
-  border: 5px solid #f3f3f3;
-  border-top: 5px solid #3498db;
-  border-radius: 50%;
-  animation: ${spin} 1s linear infinite;
+export const ProgressBar = styled.div`
+  width: 300px;
+  height: 20px;
+  background-color: rgba(243, 243, 243, 0.77);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  margin: 10px 0;
+`
+
+export const ProgressFill = styled.div`
+  height: 100%;
+  background-color: rgba(43, 115, 163, 0.69);
+  border-radius: 10px;
+  animation: ${progressAnimation} 2s ease-in-out forwards;
+`
+
+export const ProgressText = styled.span`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #333;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.8);
 `
 
 export const Container = styled.div`
@@ -32,6 +51,15 @@ export const Title = styled.h1`
   color: #333;
   text-align: center;
   margin: 0;
+`
+
+export const Text = styled.p`
+  font-size: 1rem;
+  color: #444;
+  text-align: center;
+  margin: 0;
+  max-width: 600px;
+  line-height: 1.5;
 `
 
 export const Subtitle = styled.p`

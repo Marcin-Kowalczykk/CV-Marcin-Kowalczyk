@@ -32,7 +32,7 @@ const ArrowKeysGuide: React.FC = () => {
           <ArrowIcon direction="right" />
         </ArrowKey>
       </div>
-      <p>Jump one the platform to unlock information</p>
+      <p>Jump on the platform to unlock information</p>
     </GuideContainer>
   )
 }

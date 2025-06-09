@@ -4,6 +4,7 @@ export const SkillsPageContainer = styled.div`
   display: flex;
   height: 100vh;
   background: #0d1117;
+  overflow: hidden;
 `
 
 export const SkillsPageColumn = styled.div<{ borderRight?: boolean }>`
