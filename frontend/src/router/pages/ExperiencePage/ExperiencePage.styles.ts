@@ -126,3 +126,33 @@ export const Overlay = styled.div<{ isOpen: boolean }>`
     display: block;
   }
 `
+
+export const BottomMessage = styled.div<{ isVisible: boolean }>`
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  padding: 20px;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+  z-index: 50;
+`
+
+export const BottomOverlay = styled.div<{ isVisible: boolean }>`
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent);
+  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+  z-index: 40;
+`
